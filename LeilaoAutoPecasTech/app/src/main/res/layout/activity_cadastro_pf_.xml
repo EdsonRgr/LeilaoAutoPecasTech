@@ -78,16 +78,6 @@
                 android:background="@android:color/white"/>
 
             <EditText
-                android:id="@+id/campoEmail"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:inputType="number"
-                android:hint="  CPF"
-                android:background="@android:color/white"/>
-
-            <EditText
 
                 android:layout_marginTop="10dp"
                 android:layout_width="350dp"
@@ -100,15 +90,15 @@
                 />
 
             <Button
-                android:id="@+id/btnValidar"
+                android:id="@+id/btnValidarPF"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
-                android:text="Cadastrar"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:textColor="#ffffff"
                 android:background="#2F4F4F"
-                />
+                android:onClick="validarUsuario"
+                android:text="Cadastrar"
+                android:textColor="#ffffff" />
             />
 
 

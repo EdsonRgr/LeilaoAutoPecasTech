@@ -81,7 +81,7 @@
                 android:background="#000000"/>
 
             <Button
-                android:id="@+id/btnValidar"
+                android:id="@+id/btnValidarPF"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
