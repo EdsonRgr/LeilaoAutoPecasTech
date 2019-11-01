@@ -79,15 +79,15 @@
 
             <EditText
 
-                android:layout_marginTop="10dp"
+                android:id="@+id/campoEmail"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
-                android:inputType="textEmailAddress"
-                android:hint="E-mail"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/white"
-                />
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:padding="10dp" />
 
             <Button
                 android:id="@+id/btnValidarPF"
