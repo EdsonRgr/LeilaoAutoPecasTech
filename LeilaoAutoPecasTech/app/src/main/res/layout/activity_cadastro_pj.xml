@@ -121,7 +121,7 @@
 
 
             <Button
-                android:id="@+id/btnValidarPF"
+                android:id="@+id/btnEntrar"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:text="Cadastrar"
