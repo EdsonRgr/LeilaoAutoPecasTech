@@ -12,15 +12,13 @@ import android.widget.Toast;
 import com.example.leilaoautopecastech.MainActivity;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.configFirebase;
-import com.example.leilaoautopecastech.model.Usuario;
+import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,10 +36,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void logarUsuario(Usuario usuario){
+    public void logarUsuario(PessoaFisica pessoaFisica){
 
         autenticacao.signInWithEmailAndPassword(
-                usuario.getEmail(), usuario.getSenha()
+                pessoaFisica.getEmail(), pessoaFisica.getSenha()
 
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -54,9 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         throw task.getException();
                     }catch (FirebaseAuthInvalidUserException e){
-                        excecao = "Usuario nao esta cadastrado.";
+                        excecao = "PessoaFisica nao esta cadastrado.";
                     }catch (FirebaseAuthInvalidCredentialsException e){
-                        excecao = "E-mail e senha nao correspondem a um usuario cadastrado";
+                        excecao = "E-mail e senha nao correspondem a um pessoaFisica cadastrado";
                     }catch (Exception e){
                         excecao="Erro " + e.getMessage();
                         e.printStackTrace();
@@ -77,11 +75,11 @@ public class LoginActivity extends AppCompatActivity {
             if ( !email.isEmpty()){
                 if(!senha.isEmpty()){
 
-                    Usuario usuario = new Usuario();
-                    usuario.setEmail( email );
-                    usuario.setSenha( senha );
+                    PessoaFisica pessoaFisica = new PessoaFisica();
+                    pessoaFisica.setEmail( email );
+                    pessoaFisica.setSenha( senha );
 
-                    logarUsuario( usuario );
+                    logarUsuario(pessoaFisica);
 
                 }else{
 

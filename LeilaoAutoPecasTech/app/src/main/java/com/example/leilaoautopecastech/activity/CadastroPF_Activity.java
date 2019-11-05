@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.configFirebase;
-import com.example.leilaoautopecastech.helpier.Base64Custom;
-import com.example.leilaoautopecastech.helpier.UsuarioFirebase;
-import com.example.leilaoautopecastech.model.Usuario;
+import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,7 +33,6 @@ public class CadastroPF_Activity extends AppCompatActivity {
         campoEmail = findViewById(R.id.campoEmail);
         campoSenha = findViewById(R.id.campoSenha);
 
-
     }
     public void validarUsuario(View view) {
 
@@ -49,11 +45,11 @@ public class CadastroPF_Activity extends AppCompatActivity {
                 !textoEmail.isEmpty() &&
                 !textoSenha.isEmpty()) {
 
-            Usuario usuario = new Usuario();
-            usuario.setNome(textoNome);
-            usuario.setEmail(textoEmail);
-            usuario.setSenha(textoSenha);
-            cadastrarUsuario (usuario);
+            PessoaFisica pessoaFisica = new PessoaFisica();
+            pessoaFisica.setNome(textoNome);
+            pessoaFisica.setEmail(textoEmail);
+            pessoaFisica.setSenha(textoSenha);
+            cadastrarUsuario (pessoaFisica);
 
         } else {
             Toast.makeText(CadastroPF_Activity.this, "preencha todos os dados !", Toast.LENGTH_SHORT).show();
@@ -61,10 +57,10 @@ public class CadastroPF_Activity extends AppCompatActivity {
 
     }
 
-    public  void cadastrarUsuario( final Usuario usuario){
+    public  void cadastrarUsuario( final PessoaFisica pessoaFisica){
         autenticacao = configFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(), usuario.getSenha()
+                pessoaFisica.getEmail(), pessoaFisica.getSenha()
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -74,8 +70,6 @@ public class CadastroPF_Activity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
                     finish();
-
-
 
                 }else{
                     String excecao = "";
@@ -94,24 +88,7 @@ public class CadastroPF_Activity extends AppCompatActivity {
                     Toast.makeText(CadastroPF_Activity.this,
                             excecao,Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-
+}

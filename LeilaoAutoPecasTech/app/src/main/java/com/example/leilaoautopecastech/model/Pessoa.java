@@ -1,21 +1,35 @@
 package com.example.leilaoautopecastech.model;
 
-public class Usuario {
-    private String nome;
+
+
+public class Pessoa {
+
+    private int Uid;
+    private int idImg;
     private String email;
     private String senha;
 
-    public Usuario() {
+
+    public Pessoa () {
 
     }
 
-    public String getNome() {
-        return nome;
+    public int getidImg() {
+        return idImg;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setidImg(int idImg) {
+        this.idImg = idImg;
     }
+
+    public int getUid() {
+        return Uid;
+    }
+
+    public void setUid(int Uid) {
+        this.Uid = Uid;
+    }
+
 
     public String getEmail() {
         return email;
@@ -32,4 +46,5 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }
