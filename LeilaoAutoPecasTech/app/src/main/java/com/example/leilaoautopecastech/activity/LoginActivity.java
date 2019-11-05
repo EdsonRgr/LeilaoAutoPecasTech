@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.leilaoautopecastech.MainActivity;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.configFirebase;
 import com.example.leilaoautopecastech.model.PessoaFisica;

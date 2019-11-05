@@ -1,139 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.CadastroPJActivity">
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.CadastroPJActivity">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/white"
-            android:orientation="vertical">
+            <LinearLayout
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:adjustViewBounds="false"
-                android:cropToPadding="false"
-                app:srcCompat="@drawable/logo" />
-
-            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textSize="20dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <EditText
-                android:id="@+id/campoNomeF"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_height="200dp"
                 android:background="@android:color/white"
-                android:hint="Nome Fantasia"
-                android:inputType="textPersonName" />
+                android:orientation="vertical">
 
-            <EditText
-                android:layout_marginTop="10dp"
-                android:id="@+id/campoEmail"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:inputType="textEmailAddress"
-                android:hint="E-mail"
-                android:background="@android:color/white"/>
-            <EditText
-                android:layout_marginTop="10dp"
-                android:id="@+id/campoTelefone"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:inputType="number"
-                android:hint="Telefone"
-                android:background="@android:color/white"/>
-            <EditText
-                android:layout_marginTop="10dp"
-                android:id="@+id/campoEndereco"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:inputType="textPostalAddress"
-                android:hint="Endereco"
-                android:background="@android:color/white"/>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    app:srcCompat="@drawable/logo" />
 
-            <EditText
-                android:layout_marginTop="10dp"
-                android:id="@+id/campoCNPJ"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:inputType="number"
-                android:hint="CNPJ"
-                android:background="@android:color/white"/>
-
-            <EditText
-
-                android:layout_marginTop="10dp"
-                android:id="@+id/campoSenha"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:inputType="textPassword"
-                android:hint="Senha"
-                android:background="@android:color/white"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
-            <Button
-                android:id="@+id/btnEntrar"
-                android:layout_width="320dp"
-                android:layout_height="50dp"
-                android:text="Cadastrar"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:textColor="#ffffff"
-                android:background="#2F4F4F"/>
-            />
+                <EditText
+                    android:id="@+id/campoNomeF"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@android:color/white"
+                    android:hint="Nome Fantasia"
+                    android:inputType="textPersonName"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:id="@+id/campoEmail"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:id="@+id/campoTelefone"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:hint="Telefone"
+                    android:inputType="number"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:id="@+id/campoEndereco"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:hint="Endereco"
+                    android:inputType="textPostalAddress"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:id="@+id/campoCNPJ"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:hint="CNPJ"
+                    android:inputType="number"
+                    android:padding="10dp" />
+
+                <EditText
+
+                    android:id="@+id/campoSenha"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:hint="Senha"
+                    android:inputType="textPassword"
+                    android:padding="10dp" />
 
 
+                <Button
+                    android:id="@+id/btnEntrar"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:background="#2F4F4F"
+                    android:text="Cadastrar"
+                    android:textColor="#ffffff" />
+                />
+
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
