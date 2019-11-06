@@ -12,9 +12,16 @@
         <activity
             android:name=".activity.MeusAnuncios"
             android:label="@string/title_activity_meus_anuncios"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
+            android:parentActivityName=".activity.Navigation_Drawer"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.leilaoautopecastech.activity.Navigation_Drawer" />
         </activity>
+        <activity
+            android:name=".activity.Navigation_Drawer"
+            android:label="@string/title_activity_navigation__drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.CadastrarAnuncios" />
         <activity android:name=".activity.CadastroPJActivity" />
         <activity android:name=".activity.CadastroPF_Activity" />
