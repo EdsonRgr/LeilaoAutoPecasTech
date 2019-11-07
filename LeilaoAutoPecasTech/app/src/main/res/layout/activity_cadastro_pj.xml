@@ -65,7 +65,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="Nome Fantasia"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
@@ -76,7 +76,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="E-mail"
                     android:inputType="textEmailAddress"
                     android:padding="10dp" />
@@ -87,7 +87,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="Telefone"
                     android:inputType="number"
                     android:padding="10dp" />
@@ -98,7 +98,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="Endereco"
                     android:inputType="textPostalAddress"
                     android:padding="10dp" />
@@ -109,7 +109,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="CNPJ"
                     android:inputType="number"
                     android:padding="10dp" />
@@ -121,7 +121,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/circulo_drawable"
                     android:hint="Senha"
                     android:inputType="textPassword"
                     android:padding="10dp" />

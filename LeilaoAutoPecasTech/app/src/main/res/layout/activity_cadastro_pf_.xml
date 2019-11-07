@@ -62,7 +62,7 @@
                 android:layout_gravity="center"
                 android:padding="10dp"
                 android:layout_marginTop="30dp"
-                android:background="@android:color/white"
+                android:background="@drawable/circulo_drawable"
                 android:hint="Nome"
                 android:inputType="textPersonName" />
 
@@ -75,7 +75,7 @@
                 android:layout_gravity="center"
                 android:inputType="textPassword"
                 android:hint="Senha"
-                android:background="@android:color/white"/>
+                android:background="@drawable/circulo_drawable"/>
 
             <EditText
 
@@ -84,7 +84,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/white"
+                android:background="@drawable/circulo_drawable"
                 android:hint="E-mail"
                 android:inputType="textEmailAddress"
                 android:padding="10dp" />
