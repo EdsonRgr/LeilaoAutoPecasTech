@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if( task.isSuccessful() ){
                     entrarTelaPrincipal();
+                    Toast.makeText(LoginActivity.this,
+                            "Seja Bem-Vindo!!",Toast.LENGTH_SHORT).show();
                 }else{
                     String excecao = "";
                     try {
