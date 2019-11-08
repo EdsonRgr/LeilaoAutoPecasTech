@@ -18,7 +18,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+<<<<<<< HEAD
         <LinearLayout
+=======
+
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
 
             android:layout_width="match_parent"
             android:layout_height="293dp"
@@ -28,8 +32,13 @@
             <ImageView
 
                 android:id="@+id/imageView"
+<<<<<<< HEAD
                 android:layout_width="205dp"
                 android:layout_height="184dp"
+=======
+                android:layout_width="400dp"
+                android:layout_height="250dp"
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:adjustViewBounds="false"
@@ -45,7 +54,11 @@
                 android:textSize="30sp" />
 
 
+<<<<<<< HEAD
         </LinearLayout>
+=======
+
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,8 +73,15 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
+<<<<<<< HEAD
                 android:background="@android:color/white"
                 android:padding="10dp"
+=======
+                android:background="@drawable/circulo_drawable"
+                android:padding="10dp"
+
+                android:gravity="left|center_vertical"
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:hint="Email"
                 android:inputType="textPersonName"
                 />
@@ -74,12 +94,20 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
+<<<<<<< HEAD
                 android:background="@android:color/white"
+=======
+                android:background="@drawable/circulo_drawable"
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:padding="10dp"
                 />
 
             <Button
                 android:id="@+id/btnEntrar"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

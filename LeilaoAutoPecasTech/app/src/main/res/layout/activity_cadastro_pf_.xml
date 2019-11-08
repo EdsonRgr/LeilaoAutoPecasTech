@@ -62,7 +62,11 @@
                 android:layout_gravity="center"
                 android:padding="10dp"
                 android:layout_marginTop="30dp"
+<<<<<<< HEAD
                 android:background="@android:color/white"
+=======
+                android:background="@drawable/circulo_drawable"
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:hint="Nome"
                 android:inputType="textPersonName" />
 
@@ -75,7 +79,11 @@
                 android:layout_gravity="center"
                 android:inputType="textPassword"
                 android:hint="Senha"
+<<<<<<< HEAD
                 android:background="@android:color/white"/>
+=======
+                android:background="@drawable/circulo_drawable"/>
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
 
             <EditText
 
@@ -84,7 +92,11 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+<<<<<<< HEAD
                 android:background="@android:color/white"
+=======
+                android:background="@drawable/circulo_drawable"
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:hint="E-mail"
                 android:inputType="textEmailAddress"
                 android:padding="10dp" />

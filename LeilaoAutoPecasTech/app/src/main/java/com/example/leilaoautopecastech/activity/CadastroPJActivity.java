@@ -1,5 +1,6 @@
 package com.example.leilaoautopecastech.activity;
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,10 +29,21 @@ public class CadastroPJActivity extends AppCompatActivity {
     private EditText campoNomeF , campoEmail , campoTelefone , campoEndereco , campoCNPJ , campoSenha;
     private FirebaseAuth autenticacao;
 
+=======
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import com.example.leilaoautopecastech.R;
+
+public class CadastroPJActivity extends AppCompatActivity {
+
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pj);
+<<<<<<< HEAD
         campoNomeF = findViewById(R.id.campoNomeF);
         campoEmail = findViewById(R.id.campoEmail);
         campoTelefone = findViewById(R.id.campoTelefone);
@@ -102,4 +114,7 @@ public class CadastroPJActivity extends AppCompatActivity {
         });
     }
 
+=======
+    }
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
 }

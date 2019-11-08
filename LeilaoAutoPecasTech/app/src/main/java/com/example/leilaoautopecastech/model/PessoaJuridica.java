@@ -1,5 +1,6 @@
 package com.example.leilaoautopecastech.model;
 
+<<<<<<< HEAD
 public class PessoaJuridica extends Pessoa {
 
     public String NomeF;
@@ -44,3 +45,11 @@ public class PessoaJuridica extends Pessoa {
         this.CNPJ = CNPJ;
     }
 }
+=======
+public class PessoaJuridica extends Pessoa{
+
+
+
+
+}
+>>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
