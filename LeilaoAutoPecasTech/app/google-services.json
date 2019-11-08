@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "3558612933",
+    "firebase_url": "https://leilaoautotech-1d278.firebaseio.com",
+    "project_id": "leilaoautotech-1d278",
+    "storage_bucket": "leilaoautotech-1d278.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3558612933:android:822d5f605d9fe6092035ac",
+        "android_client_info": {
+          "package_name": "com.example.leilaoautopecastech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3558612933-1it9jrilu2ans6cnoeh6nisfmb0d6d2a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.leilaoautopecastech",
+            "certificate_hash": "28722d10438d69d065751f46556144beb36d3c25"
+          }
+        },
+        {
+          "client_id": "3558612933-7mug4sorr584jh19d038krk1kbpglom8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhEJSIfdIOHIMaaesV4EUDTKP3XbsduRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3558612933-7mug4sorr584jh19d038krk1kbpglom8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

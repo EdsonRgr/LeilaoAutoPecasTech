@@ -1,0 +1,73 @@
+package com.example.leilaoautopecastech.Slider;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import com.example.leilaoautopecastech.R;
+import com.example.leilaoautopecastech.activity.CadastroPF_Activity;
+import com.example.leilaoautopecastech.activity.CadastroPJActivity;
+import com.example.leilaoautopecastech.activity.LoginActivity;
+import com.heinrichreimersoftware.materialintro.app.IntroActivity;
+import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
+import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
+
+public class Slider extends IntroActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setFullscreen(true);
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_main);
+
+        setButtonNextVisible(false);
+        setButtonBackVisible(false);
+
+        addSlide(new FragmentSlide.Builder()
+            .background(android.R.color.white)
+                .fragment(R.layout.intro_1)
+                .build()
+        );
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_2)
+                .build()
+        );
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_3)
+                .build()
+        );
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_4)
+                .build()
+        );
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_cadastro)
+                .canGoForward(false)
+                .build()
+        );
+
+    }
+
+
+    public void btCadastrarPF (View view){
+            startActivity(new Intent(this, CadastroPF_Activity.class));
+    }
+
+    public void btCadastrarPJ (View view){
+        startActivity(new Intent(this, CadastroPJActivity.class));
+    }
+
+    public void btEntrar (View view){
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+
+
+}
