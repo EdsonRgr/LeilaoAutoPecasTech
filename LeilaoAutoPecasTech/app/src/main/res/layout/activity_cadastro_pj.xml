@@ -4,16 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-<<<<<<< HEAD
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical">
-=======
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -72,11 +68,8 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
+
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="Nome Fantasia"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
@@ -87,11 +80,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="E-mail"
                     android:inputType="textEmailAddress"
                     android:padding="10dp" />
@@ -102,11 +91,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="Telefone"
                     android:inputType="number"
                     android:padding="10dp" />
@@ -117,11 +102,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="Endereco"
                     android:inputType="textPostalAddress"
                     android:padding="10dp" />
@@ -132,11 +113,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="CNPJ"
                     android:inputType="number"
                     android:padding="10dp" />
@@ -148,11 +125,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-<<<<<<< HEAD
-                    android:background="@android:color/white"
-=======
                     android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:hint="Senha"
                     android:inputType="textPassword"
                     android:padding="10dp" />
@@ -165,10 +138,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="40dp"
                     android:background="#2F4F4F"
-<<<<<<< HEAD
                     android:onClick="validarUsuarioPJ"
-=======
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                     android:text="Cadastrar"
                     android:textColor="#ffffff" />
                 />

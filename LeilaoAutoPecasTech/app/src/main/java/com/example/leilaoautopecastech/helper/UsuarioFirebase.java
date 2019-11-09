@@ -1,4 +1,4 @@
-package com.example.leilaoautopecastech.helpier;
+package com.example.leilaoautopecastech.helper;
 
 import com.example.leilaoautopecastech.config.configFirebase;
 import com.google.firebase.auth.FirebaseAuth;

@@ -1,14 +1,14 @@
-package com.example.leilaoautopecastech.activity.ui.gallery;
+package com.example.leilaoautopecastech.activity.ui.meus_anuncios;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class meus_anunciosViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public meus_anunciosViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

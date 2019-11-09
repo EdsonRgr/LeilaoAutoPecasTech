@@ -1,10 +1,13 @@
 package com.example.leilaoautopecastech.model;
 
 
+import com.example.leilaoautopecastech.config.configFirebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 
 public class Pessoa {
 
-    private int Uid;
+    private String idUsuario;
     private int idImg;
     private String email;
     private String senha;
@@ -14,35 +17,34 @@ public class Pessoa {
 
     }
 
+
+    @Exclude
     public int getidImg() {
         return idImg;
     }
-
     public void setidImg(int idImg) {
         this.idImg = idImg;
     }
 
-    public int getUid() {
-        return Uid;
+    @Exclude
+    public String getidUsuario() {
+        return idUsuario;
     }
-
-    public void setUid(int Uid) {
-        this.Uid = Uid;
+    public void setidUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
-
 
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @Exclude
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }

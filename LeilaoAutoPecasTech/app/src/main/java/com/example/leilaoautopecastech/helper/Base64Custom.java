@@ -1,4 +1,4 @@
-package com.example.leilaoautopecastech.helpier;
+package com.example.leilaoautopecastech.helper;
 
 import android.util.Base64;
 

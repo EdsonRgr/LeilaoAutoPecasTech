@@ -17,75 +17,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="400dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/logo" />
 
-<<<<<<< HEAD
-        <LinearLayout
-=======
-
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
-
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="293dp"
-            android:background="@android:color/white"
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:id="@+id/imageView"
-<<<<<<< HEAD
-                android:layout_width="205dp"
-                android:layout_height="184dp"
-=======
-                android:layout_width="400dp"
-                android:layout_height="250dp"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:adjustViewBounds="false"
-                android:cropToPadding="false"
-                app:srcCompat="@drawable/logo" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textSize="30sp" />
-
-
-<<<<<<< HEAD
-        </LinearLayout>
-=======
-
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-
             <EditText
-
                 android:id="@+id/campoLoginEmail"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-<<<<<<< HEAD
-                android:background="@android:color/white"
-                android:padding="10dp"
-=======
                 android:background="@drawable/circulo_drawable"
                 android:padding="10dp"
 
                 android:gravity="left|center_vertical"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:hint="Email"
                 android:inputType="textPersonName"
                 />
-
             <EditText
                 android:id="@+id/campoLoginSenha"
                 android:layout_gravity="center"
@@ -94,20 +60,11 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
-<<<<<<< HEAD
-                android:background="@android:color/white"
-=======
                 android:background="@drawable/circulo_drawable"
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:padding="10dp"
                 />
-
             <Button
                 android:id="@+id/btnEntrar"
-<<<<<<< HEAD
-=======
-
->>>>>>> 058679d123fff3942d04ee81a5a8003addc82644
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -116,14 +73,6 @@
                 android:onClick="validarAutenticacaoUsuario"
                 android:text="Entrar"
                 android:textColor="@android:color/white" />
-
-
-
-
-
-            />
-
-
         </LinearLayout>
     </LinearLayout>
 

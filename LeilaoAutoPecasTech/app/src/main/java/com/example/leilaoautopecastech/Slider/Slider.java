@@ -11,17 +11,24 @@ import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.activity.CadastroPF_Activity;
 import com.example.leilaoautopecastech.activity.CadastroPJActivity;
 import com.example.leilaoautopecastech.activity.LoginActivity;
+import com.example.leilaoautopecastech.activity.Navigation_Drawer;
+import com.example.leilaoautopecastech.config.configFirebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class Slider extends IntroActivity {
 
+    private FirebaseAuth autenticacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setFullscreen(true);
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+
 
         setButtonNextVisible(false);
         setButtonBackVisible(false);
@@ -55,6 +62,12 @@ public class Slider extends IntroActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        verificaruserlog();
+
+    }
 
     public void btCadastrarPF (View view){
             startActivity(new Intent(this, CadastroPF_Activity.class));
@@ -68,6 +81,19 @@ public class Slider extends IntroActivity {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
+    public void verificaruserlog (){
+        autenticacao = configFirebase.getFirebaseAutenticacao();
+
+        if (autenticacao.getCurrentUser() != null ){
+            entrarTelaPrincipal();
+        }
+
+    }
 
 
+    public void entrarTelaPrincipal(){
+        Intent intent = new Intent(Slider.this, Navigation_Drawer.class);
+        startActivity(intent);
+
+    }
 }

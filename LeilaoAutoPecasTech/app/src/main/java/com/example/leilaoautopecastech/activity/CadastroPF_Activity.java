@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.configFirebase;
+import com.example.leilaoautopecastech.helper.Base64Custom;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,9 @@ public class CadastroPF_Activity extends AppCompatActivity {
 
                     Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Usuário !",
                             Toast.LENGTH_SHORT).show();
+
+                    String idUsuario = Base64Custom.codificarBase64( pessoaFisica.getEmail());
+                    pessoaFisica.setidUsuario( idUsuario );
 
                     finish();
 

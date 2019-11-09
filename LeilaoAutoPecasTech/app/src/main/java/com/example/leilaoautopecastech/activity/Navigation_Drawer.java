@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.leilaoautopecastech.R;
+import com.example.leilaoautopecastech.Slider.Slider;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -18,6 +19,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -31,20 +33,16 @@ public class Navigation_Drawer extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+
+    private FirebaseAuth autenticacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -73,15 +71,14 @@ public class Navigation_Drawer extends AppCompatActivity {
                 }
 
                 if(destination.getId() == R.id.nav_meusanuncios){
-                    startActivity(new Intent(getApplicationContext(),MeusAnuncios.class));
+                    Toast.makeText(Navigation_Drawer.this, "MeusAnuncios", Toast.LENGTH_SHORT).show();
                 }
-
 
                 if(destination.getId() == R.id.nav_perfil){
                     Toast.makeText(Navigation_Drawer.this, "PERFIL", Toast.LENGTH_SHORT).show();
                 }
                 if(destination.getId() == R.id.nav_sair){
-                    Toast.makeText(Navigation_Drawer.this, "SAIR", Toast.LENGTH_SHORT).show();
+                    sair();
                 }
 
             }
@@ -101,6 +98,19 @@ public class Navigation_Drawer extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    private void sair(){
+        FirebaseAuth.getInstance().signOut();
+
+        Intent intent = new Intent(getApplicationContext(), Slider.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        Toast.makeText(Navigation_Drawer.this, "Saindo", Toast.LENGTH_SHORT).show();
+
+
+
     }
 //public void onBackPressed(){
     //DrawerLayout drawerLayout = (DrawerLayout findViewById(R.id.drawer_layout))
