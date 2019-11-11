@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
-import com.example.leilaoautopecastech.config.configFirebase;
+import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         campoEmail = findViewById(R.id.campoLoginEmail);
         campoSenha = findViewById(R.id.campoLoginSenha);
-        autenticacao = configFirebase.getFirebaseAutenticacao();
+        autenticacao = ConfigFirebase.getFirebaseAutenticacao();
 
     }
 

@@ -1,8 +1,6 @@
 package com.example.leilaoautopecastech.model;
 
 
-import com.example.leilaoautopecastech.config.configFirebase;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
 public class Pessoa {

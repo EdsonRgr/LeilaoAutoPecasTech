@@ -1,4 +1,4 @@
-package com.example.leilaoautopecastech.activity.ui.share;
+package com.example.leilaoautopecastech.activity.ui.perfil;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

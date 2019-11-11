@@ -4,15 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ValidaCNPJ;
-import com.example.leilaoautopecastech.config.configFirebase;
-import com.example.leilaoautopecastech.model.PessoaFisica;
+import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -70,7 +68,7 @@ public class CadastroPJActivity extends AppCompatActivity {
     }
 
     public  void cadastrarUsuarioPJ ( final PessoaJuridica pessoaJuridica){
-        autenticacao = configFirebase.getFirebaseAutenticacao();
+        autenticacao = ConfigFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
                 pessoaJuridica.getEmail(), pessoaJuridica.getSenha()
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

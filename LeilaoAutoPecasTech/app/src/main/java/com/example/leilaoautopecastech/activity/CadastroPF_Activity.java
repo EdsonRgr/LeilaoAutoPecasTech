@@ -4,12 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
-import com.example.leilaoautopecastech.config.configFirebase;
+import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.Base64Custom;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,11 +20,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CadastroPF_Activity extends AppCompatActivity {
 
     private EditText campoNome, campoEmail, campoSenha;
     private FirebaseAuth autenticacao;
+
+    private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
@@ -58,20 +63,21 @@ public class CadastroPF_Activity extends AppCompatActivity {
 
     }
 
-    public  void cadastrarUsuario( final PessoaFisica pessoaFisica){
-        autenticacao = configFirebase.getFirebaseAutenticacao();
-        autenticacao.createUserWithEmailAndPassword(
-                pessoaFisica.getEmail(), pessoaFisica.getSenha()
-        ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+    public  void cadastrarUsuario( final PessoaFisica pessoaFisica){ autenticacao = ConfigFirebase.getFirebaseAutenticacao();
+        autenticacao.createUserWithEmailAndPassword(pessoaFisica.getEmail(), pessoaFisica.getSenha())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+
 
                     Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Usuário !",
                             Toast.LENGTH_SHORT).show();
 
                     String idUsuario = Base64Custom.codificarBase64( pessoaFisica.getEmail());
                     pessoaFisica.setidUsuario( idUsuario );
+                    Log.i("testando", task.getResult().getUser().getUid());
+                    pessoaFisica.salvarPessoaFisica();
 
                     finish();
 
@@ -94,5 +100,6 @@ public class CadastroPF_Activity extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

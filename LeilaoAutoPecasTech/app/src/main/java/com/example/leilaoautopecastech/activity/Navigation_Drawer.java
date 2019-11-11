@@ -112,10 +112,6 @@ public class Navigation_Drawer extends AppCompatActivity {
 
 
     }
-//public void onBackPressed(){
-    //DrawerLayout drawerLayout = (DrawerLayout findViewById(R.id.drawer_layout))
-
-//}
 
 }
 

@@ -1,4 +1,4 @@
-package com.example.leilaoautopecastech.activity.ui.share;
+package com.example.leilaoautopecastech.activity.ui.perfil;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

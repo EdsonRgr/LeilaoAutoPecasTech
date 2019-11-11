@@ -1,8 +1,6 @@
 package com.example.leilaoautopecastech.Slider;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,11 +10,10 @@ import com.example.leilaoautopecastech.activity.CadastroPF_Activity;
 import com.example.leilaoautopecastech.activity.CadastroPJActivity;
 import com.example.leilaoautopecastech.activity.LoginActivity;
 import com.example.leilaoautopecastech.activity.Navigation_Drawer;
-import com.example.leilaoautopecastech.config.configFirebase;
+import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
-import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class Slider extends IntroActivity {
 
@@ -82,7 +79,7 @@ public class Slider extends IntroActivity {
     }
 
     public void verificaruserlog (){
-        autenticacao = configFirebase.getFirebaseAutenticacao();
+        autenticacao = ConfigFirebase.getFirebaseAutenticacao();
 
         if (autenticacao.getCurrentUser() != null ){
             entrarTelaPrincipal();

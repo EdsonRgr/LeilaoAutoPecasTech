@@ -1,4 +1,4 @@
-package com.example.leilaoautopecastech.activity.ui.send;
+package com.example.leilaoautopecastech.activity.ui.sair;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

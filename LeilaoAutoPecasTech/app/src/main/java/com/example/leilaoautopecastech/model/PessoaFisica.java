@@ -1,6 +1,6 @@
 package com.example.leilaoautopecastech.model;
 
-import com.example.leilaoautopecastech.config.configFirebase;
+import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.firebase.database.DatabaseReference;
 
 public class PessoaFisica extends Pessoa {
@@ -12,7 +12,7 @@ public class PessoaFisica extends Pessoa {
 
     }
     public void salvarPessoaFisica(){
-        DatabaseReference firebase = configFirebase.getFirebaseDatabase();
+        DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
         firebase.child("PessoaFisica")
                 .child(this.getidUsuario())
                 .setValue( this );
