@@ -3,6 +3,7 @@ package com.example.leilaoautopecastech.model;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.firebase.database.DatabaseReference;
 
+
 public class PessoaFisica extends Pessoa {
 
     private String nome;

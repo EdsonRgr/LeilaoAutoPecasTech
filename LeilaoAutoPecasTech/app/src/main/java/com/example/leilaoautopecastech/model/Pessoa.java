@@ -5,7 +5,7 @@ import com.google.firebase.database.Exclude;
 
 public class Pessoa {
 
-    private String idUsuario;
+    public String idUsuario;
     private int idImg;
     private String email;
     private String senha;
