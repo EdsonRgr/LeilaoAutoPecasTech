@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -57,7 +57,7 @@
             android:textSize="18sp" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinnerMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -72,7 +72,7 @@
             android:textSize="18sp" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/spinnerModelo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -93,20 +93,20 @@
         android:orientation="horizontal">
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/spinnerCategoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Spinner
-            android:id="@+id/spinner5"
+            android:id="@+id/spinnerPecas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/TituloCad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -117,20 +117,23 @@
         android:padding="10dp"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/editText2"
+    <com.blackcat.currencyedittext.CurrencyEditText
+        android:id="@+id/ValorCad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bg_edit_text"
         android:ems="10"
-        android:hint="Valor"
+        android:hint="44,44"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        />
+
+
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/TelefoneCad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -141,8 +144,10 @@
         android:padding="10dp"
         android:textSize="20dp" />
 
+
+
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/DescricaoCad"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginBottom="20dp"
@@ -153,12 +158,13 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/CadastrarAnuncio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#2F4F4F"
+        android:onClick="salvarAnuncio"
         android:text="Cadastrar Anuncio"
-        android:textColor="#ffffff"
-        android:background="#2F4F4F"/>
+        android:textColor="#ffffff" />
 
 
 </LinearLayout>

@@ -15,4 +15,39 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_perfil">Perfil</string>
     <string name="menu_sair">sair</string>
+
+
+    <string-array name="marca">
+        <item>Volkswagen</item>
+        <item>Chevrolet</item>
+    </string-array>
+
+    <string-array name="modelo">
+        <item>Corsa / Chevrolet </item>
+        <item>Celta / Chevrolet</item>
+        <item>Astra Sedan / Chevrolet</item>
+        <item>Agile / Chevrolet</item>
+
+        <item>CrossFox / Volkswagen </item>
+        <item>Golf / Volkswagen</item>
+        <item>Up! / Volkswagen</item>
+        <item>Gol / Volkswagen</item>
+
+    </string-array>
+
+    <string-array name="categoria">
+        <item>Acabamentos Internos</item>
+        <item>Parachoques e Paralamas</item>
+        <item>Pedais e Acionamentos</item>
+        <item>Portas e Capôs</item>
+    </string-array>
+
+
+    <string-array name="pecas">
+        <item>Para-Choque Dianteiro / Parachoques e Paralamas</item>
+        <item>Para-Barro do Para-Lama Dianteiro / Parachoques e Paralamas</item>
+        <item>Para-Lama Traseiro / Parachoques e Paralamas</item>
+    </string-array>
+
+
 </resources>
