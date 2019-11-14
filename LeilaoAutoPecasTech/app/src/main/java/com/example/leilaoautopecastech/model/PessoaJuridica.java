@@ -1,5 +1,9 @@
 package com.example.leilaoautopecastech.model;
 
+import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+
 public class PessoaJuridica extends Pessoa {
 
     public String NomeF;
@@ -9,6 +13,13 @@ public class PessoaJuridica extends Pessoa {
 
 
     public PessoaJuridica() {
+
+    }
+    public void salvarPessoaJuridica(){
+        DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
+       firebase.child("PessoaJuridica")
+                .child(this.getidUsuario())
+                .setValue(this);
 
     }
 
