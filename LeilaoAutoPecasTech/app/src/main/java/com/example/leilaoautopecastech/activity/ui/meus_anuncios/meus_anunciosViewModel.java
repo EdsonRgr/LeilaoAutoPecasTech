@@ -10,7 +10,7 @@ public class meus_anunciosViewModel extends ViewModel {
 
     public meus_anunciosViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("fragment de meus anuncios");
     }
 
     public LiveData<String> getText() {

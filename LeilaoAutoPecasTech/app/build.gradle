@@ -50,8 +50,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'com.google.firebase:firebase-core:17.2.1'
 
+
+    //mask tel
     implementation 'com.github.santalu:mask-edittext:1.1.1'
+    //mask moeda
     implementation 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
+    //mask dialog
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 
 }
 
