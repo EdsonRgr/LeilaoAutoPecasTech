@@ -130,9 +130,7 @@
         android:textSize="20dp"
         />
 
-
-
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/TelefoneCad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -140,9 +138,10 @@
         android:background="@drawable/bg_edit_text"
         android:ems="10"
         android:hint="Telefone"
-        android:inputType="textPersonName"
         android:padding="10dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:inputType="phone"
+        app:met_mask="(##) #####-####"/>
 
 
 
@@ -162,7 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#2F4F4F"
-        android:onClick="salvarAnuncio"
+        android:onClick="validarDadosAnuncio"
         android:text="Cadastrar Anuncio"
         android:textColor="#ffffff" />
 

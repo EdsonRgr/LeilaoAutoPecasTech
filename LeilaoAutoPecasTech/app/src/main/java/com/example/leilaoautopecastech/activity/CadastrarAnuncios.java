@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.example.leilaoautopecastech.R;
@@ -54,7 +55,82 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         carregaDadosSpinner();
 
     }
-    public void salvarAnuncio(View view ){
+
+    public void validarDadosAnuncio(View view){
+
+
+
+        String marca = spinnerMarca.getSelectedItem().toString();
+        String modelo = spinnerModelo.getSelectedItem().toString();
+        String categoria = spinnerCategoria.getSelectedItem().toString();
+        String peca = spinnerPeca.getSelectedItem().toString();
+
+        String titulo = campoTitulo.getText().toString();
+        String valor = String.valueOf(campoValor.getRawValue());
+
+        String telefone = "";
+
+        if(campoTelefone.getRawText() != null){
+            telefone = campoTelefone.getRawText().toString();
+        }
+
+        String descricao = campoDescricao.getText().toString();
+
+        if( listaFotosRecuperadas.size() >= 2 ){
+            if ( !marca.isEmpty() ){
+                if ( !modelo.isEmpty() ){
+                    if ( !categoria.isEmpty() ){
+                        if ( !peca.isEmpty() ){
+                            if ( !titulo.isEmpty() ){
+                                if ( !valor.isEmpty() && !valor.equals("0") ){
+                                    if ( !telefone.isEmpty() && telefone.length() >= 11 ){
+                                        if ( !descricao.isEmpty() ){
+                                            salvarAnuncio();
+                                        }else{
+                                            mensagemDeErro("Preencha a Descrição ! ");
+                                        }
+
+                                    }else{
+                                        mensagemDeErro("Preencha corretamente o campo telefone! ");
+                                    }
+
+                                }else{
+                                    mensagemDeErro("Preencha o campo Valor ! ");
+                                }
+
+                            }else{
+                                mensagemDeErro("Preencha o campo Titulo ! ");
+                            }
+
+                        }else{
+                            mensagemDeErro("Preencha o campo Peças ! ");
+                        }
+
+                    }else{
+                        mensagemDeErro("Preencha o campo Categoria ! ");
+                    }
+
+                }else{
+                    mensagemDeErro("Preencha o campo Modelo ! ");
+                }
+            }else{
+                mensagemDeErro("Preencha o campo Marca ! ");
+            }
+        }else {
+            mensagemDeErro("Selecione ao menos uma foto");
+        }
+
+
+
+    }
+
+
+    private void mensagemDeErro(String mensagem){
+
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    public void salvarAnuncio( ){
         String valor = campoValor.getHintString();
         Log.d("salvar", "salvarAnuncio" + valor);
     }
@@ -136,6 +212,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         campoTitulo = findViewById(R.id.TituloCad);
         campoDescricao = findViewById(R.id.DescricaoCad);
         campoValor = findViewById(R.id.ValorCad);
+        campoTelefone = findViewById(R.id.TelefoneCad);
         imagem1 = findViewById(R.id.cadImgAnuncio1);
         imagem2 = findViewById(R.id.cadImgAnuncio2);
         imagem3 = findViewById(R.id.cadImgAnuncio3);
