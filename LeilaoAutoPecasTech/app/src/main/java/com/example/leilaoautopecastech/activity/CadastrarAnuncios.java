@@ -40,6 +40,8 @@ import java.util.Locale;
 
 import dmax.dialog.SpotsDialog;
 
+import static android.provider.MediaStore.*;
+
 public class CadastrarAnuncios extends AppCompatActivity implements View.OnClickListener{
 
     private android.app.AlertDialog dialog;
@@ -54,8 +56,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
     private Spinner spinnerMarca, spinnerModelo, spinnerCategoria, spinnerPeca;
 
     private String[] permissoes = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA
+            Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
     private List<String> listaFotosRecuperadas = new ArrayList<>();
@@ -251,9 +252,11 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == Activity.RESULT_OK){
+
+        if(resultCode == Activity.RESULT_OK){
+
             Uri imagemSelecionada = data.getData();
             String caminhoImagem = imagemSelecionada.toString();
 
@@ -263,7 +266,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
             }else if (requestCode == 2 ){
                 imagem2.setImageURI( imagemSelecionada );
 
-            }else if (resultCode == 3){
+            }else if (requestCode == 3){
                 imagem3.setImageURI( imagemSelecionada);
 
             } listaFotosRecuperadas.add( caminhoImagem );
