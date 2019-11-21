@@ -12,13 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.activity.CadastrarAnuncios;
+import com.example.leilaoautopecastech.model.Anuncio;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class meus_anunciosFragment extends Fragment {
+
+
+    private RecyclerView recyclerAnuncios;
+    private List<Anuncio> anuncios = new ArrayList<>();
+
 
     private meus_anunciosViewModel meusanunciosViewModel;
     public View root;
@@ -46,4 +56,5 @@ public class meus_anunciosFragment extends Fragment {
 
         return root;
     }
+    
 }

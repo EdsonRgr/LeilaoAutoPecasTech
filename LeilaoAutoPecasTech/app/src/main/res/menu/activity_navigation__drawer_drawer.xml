@@ -22,14 +22,15 @@
             android:title="@string/menu_tools" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Conta">
         <menu>
             <item
                 android:id="@+id/nav_perfil"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_perfil" />
             <item
-                android:id="@+id/nav_sair"
+                android:id="@+id/sair"
+                android:onClick="sair"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_sair" />
         </menu>
