@@ -6,10 +6,10 @@ import com.google.firebase.database.DatabaseReference;
 
 public class PessoaJuridica extends Pessoa {
 
-    public String NomeF;
-    public String Telefone;
-    public String Endereco;
-    public String CNPJ;
+    private String NomeF;
+    private String Telefone;
+    private String Endereco;
+    private String CNPJ;
 
 
     public PessoaJuridica() {

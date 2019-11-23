@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ValidaCNPJ;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.helper.Base64Custom;
 import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -80,6 +82,10 @@ public class CadastroPJActivity extends AppCompatActivity {
 
                     Toast.makeText(CadastroPJActivity.this,"Sucesso ao cadastrar Usuário !",
                             Toast.LENGTH_SHORT).show();
+                    String idUsuario = Base64Custom.codificarBase64( pessoaJuridica.getEmail());
+                    pessoaJuridica.setidUsuario( idUsuario );
+                   // Log.i("testando", task.getResult().getUser().getUid());
+                    pessoaJuridica.salvarPessoaJuridica();
 
                     finish();
 

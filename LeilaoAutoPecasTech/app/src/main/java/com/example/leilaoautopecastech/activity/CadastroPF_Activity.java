@@ -76,7 +76,7 @@ public class CadastroPF_Activity extends AppCompatActivity {
 
                     String idUsuario = Base64Custom.codificarBase64( pessoaFisica.getEmail());
                     pessoaFisica.setidUsuario( idUsuario );
-                    Log.i("testando", task.getResult().getUser().getUid());
+                    //Log.i("testando", task.getResult().getUser().getUid());
                     pessoaFisica.salvarPessoaFisica();
 
                     finish();
