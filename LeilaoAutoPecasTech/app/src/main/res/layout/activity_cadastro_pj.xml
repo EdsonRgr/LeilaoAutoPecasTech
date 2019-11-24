@@ -137,7 +137,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="40dp"
-                    android:background="#2F4F4F"
+                    android:background="@drawable/button_style"
                     android:onClick="validarUsuarioPJ"
                     android:text="Cadastrar"
                     android:textColor="#ffffff" />

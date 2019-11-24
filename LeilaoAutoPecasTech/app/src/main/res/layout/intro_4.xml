@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo">
 
 
     <ImageView
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="365dp"
         android:text="Ache suas autopeças "
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="172dp"
         android:text="descriçao"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

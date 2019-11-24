@@ -160,7 +160,7 @@
         android:id="@+id/CadastrarAnuncio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2F4F4F"
+        android:background="@drawable/button_style"
         android:onClick="validarDadosAnuncio"
         android:text="Cadastrar Anuncio"
         android:textColor="#ffffff" />
