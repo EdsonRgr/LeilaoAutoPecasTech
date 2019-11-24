@@ -1,5 +1,6 @@
 package com.example.leilaoautopecastech.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -71,12 +73,12 @@ public class Navigation_Drawer extends AppCompatActivity {
 
 
                 if(destination.getId() == R.id.nav_home){
-                    Toast.makeText(Navigation_Drawer.this, "TESTANDO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Navigation_Drawer.this, "feed!", Toast.LENGTH_SHORT).show();
 
                 }
 
                 if(destination.getId() == R.id.nav_meusanuncios){
-                    Toast.makeText(Navigation_Drawer.this, "MeusAnuncios", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Navigation_Drawer.this, "Meus Anuncios", Toast.LENGTH_SHORT).show();
                 }
 
                 if(destination.getId() == R.id.nav_perfil){
@@ -108,12 +110,29 @@ public class Navigation_Drawer extends AppCompatActivity {
 
     public boolean sair (MenuItem item){
 
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), Slider.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        Toast.makeText(Navigation_Drawer.this, "Saindo", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Navigation_Drawer.this);
+        builder.setTitle("Deseja sair ?");
+        builder.setMessage(" Precione Sim para sair");
+        builder.setCancelable(true);
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Slider.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                Toast.makeText(Navigation_Drawer.this, "Saindo", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
         return true;
     }
 

@@ -7,6 +7,7 @@ import com.google.firebase.database.Exclude;
 import java.util.List;
 
 public class Anuncio {
+    private String key;
     private String idAnuncio;
     private String marcas;
     private String modelos;
@@ -58,6 +59,38 @@ public class Anuncio {
                 .child(getIdAnuncio())
                 .setValue(this);
     }
+
+
+    public void excluirAnuncio() {
+        String idUsuario = ConfigFirebase.getIdUsuario();
+        //
+        DatabaseReference anuncioRef = ConfigFirebase.getFirebaseDatabase()
+                .child("meus_anuncios")
+                .child(idUsuario)
+                .child(getIdAnuncio());
+        anuncioRef.removeValue();
+        excluirAnuncioPublicos();
+
+    }
+
+    public void excluirAnuncioPublicos() {
+
+        DatabaseReference anuncioRef = ConfigFirebase.getFirebaseDatabase()
+                .child("anuncios")
+                .child( getMarcas() )
+                .child(getModelos())
+                .child(getCategorias())
+                .child(getPecas())
+                .child(getIdAnuncio());
+        anuncioRef.removeValue();
+
+
+    }
+
+
+
+
+
 
     @Exclude
     public String getFone() {
@@ -146,4 +179,6 @@ public class Anuncio {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+
 }
