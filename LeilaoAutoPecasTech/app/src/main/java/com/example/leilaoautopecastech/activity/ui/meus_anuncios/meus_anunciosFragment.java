@@ -114,7 +114,7 @@ public class meus_anunciosFragment extends Fragment {
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
 
                 int dragFlags = ItemTouchHelper.ACTION_STATE_IDLE;
-                int swipeFlags = ItemTouchHelper.START ;
+                int swipeFlags = ItemTouchHelper.END ;
                 return makeMovementFlags(dragFlags, swipeFlags );
 
 

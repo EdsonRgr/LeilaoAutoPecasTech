@@ -26,6 +26,8 @@ import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.Permissoes;
 import com.example.leilaoautopecastech.model.Anuncio;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -104,16 +106,62 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
 
     private void salvarFotosStorage(String urlString, final int totalfotos, int contador) {
         //no do storage
-        StorageReference imagemAnuncio = storage.child("imagens")
+        final StorageReference imagemAnuncio = storage.child("imagens")
                 .child("anuncios").child(anuncio.getIdAnuncio()).child("imagem"+contador);
         //up das fotos
         UploadTask uploadTask = imagemAnuncio.putFile( Uri.parse(urlString));
-        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+        Task<Uri> urkTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()){
+                    throw task.getException();
+                }
+
+                return imagemAnuncio.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()){
+                    Uri firebaseUrl = task.getResult();
+                    String urlConvertida = firebaseUrl.toString();
+
+                    listaURLFotos.add( urlConvertida );
+                    if (totalfotos == listaURLFotos.size()){
+                        anuncio.setFotos( listaURLFotos );
+                        anuncio.salvar();
+                        dialog.dismiss();
+                        finish();
+                    }
+
+                } else {
+                    Toast.makeText(CadastrarAnuncios.this, "Falhou", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                dialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+                Toast.makeText(CadastrarAnuncios.this, "" + e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+/////////////////
+       /* uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 // Uri firebaseUrl = taskSnapshot.getDownloadUrl();
-                Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
+                Uri firebaseUrl = taskSnapshot.getStorage().getDownloadUrl().getResult();
                 String urlConvertida = firebaseUrl.toString();
 
                 listaURLFotos.add( urlConvertida );
@@ -136,7 +184,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
                 Log.i("INFO", "Deu errado na hora de subir a img" + e.getMessage());
             }
         });
-
+                */
 
     }
 
