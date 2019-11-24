@@ -146,7 +146,7 @@ public class meus_anunciosFragment extends Fragment {
 
 
     }
-    
+
 
     public void excluir(final RecyclerView.ViewHolder viewHolder ){
         AlertDialog.Builder alerDialog = new AlertDialog.Builder(getContext());
