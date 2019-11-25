@@ -49,7 +49,7 @@ public class AdapterAnuncios extends RecyclerView.Adapter<AdapterAnuncios.MyView
 
     @Override
     public int getItemCount() {
-        return null!=anuncios?anuncios.size():0;
+        return anuncios.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

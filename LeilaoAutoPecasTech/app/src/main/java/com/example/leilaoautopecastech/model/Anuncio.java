@@ -4,6 +4,7 @@ import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Anuncio {
@@ -18,7 +19,7 @@ public class Anuncio {
     private String telefone;
     private String fone;
     private String descricao;
-    private List<String> fotos;
+    private List<String> fotos = new ArrayList<>();
 
 
     //construtor

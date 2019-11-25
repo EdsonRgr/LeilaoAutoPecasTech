@@ -153,39 +153,6 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
             }
         });
 
-
-
-/////////////////
-       /* uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                // Uri firebaseUrl = taskSnapshot.getDownloadUrl();
-                Uri firebaseUrl = taskSnapshot.getStorage().getDownloadUrl().getResult();
-                String urlConvertida = firebaseUrl.toString();
-
-                listaURLFotos.add( urlConvertida );
-
-                if (totalfotos == listaURLFotos.size()){
-                    anuncio.setFotos( listaURLFotos );
-                    anuncio.salvar();
-
-
-                    dialog.dismiss();
-                    finish();
-                }
-
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                mensagemDeErro("Errou ao fazer Up da imagem");
-                Log.i("INFO", "Deu errado na hora de subir a img" + e.getMessage());
-            }
-        });
-                */
-
     }
 
 
