@@ -1,12 +1,17 @@
 package com.example.leilaoautopecastech.activity.ui.home;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -29,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.OnClick;
 import dmax.dialog.SpotsDialog;
 
 public class HomeFragment extends Fragment {
@@ -38,6 +44,9 @@ public class HomeFragment extends Fragment {
     private AdapterAnuncios adapterAnuncios;
     private DatabaseReference anunciosPublicosRef;
     private AlertDialog dialog;
+    private String filtroMarca = "";
+    private String filtroModelo = "";
+    private boolean filtrandoPorModelo = false;
 
 
 
@@ -49,6 +58,8 @@ public class HomeFragment extends Fragment {
                 .child("anuncios");
 
 
+
+
         //reciclyview
         RecyclerView recyclerAnunciosPublicos  = (RecyclerView) root.findViewById(R.id.recyclerAnunciosPublicos);
 
@@ -56,7 +67,9 @@ public class HomeFragment extends Fragment {
         recyclerAnunciosPublicos.setHasFixedSize(true);
         adapterAnuncios = new AdapterAnuncios(listaAnuncios, getContext());
         recyclerAnunciosPublicos.setAdapter( adapterAnuncios );
+        recyclerAnunciosPublicos.smoothScrollToPosition(0);
         //
+
 
 
         //recuparAnucios
@@ -78,7 +91,7 @@ public class HomeFragment extends Fragment {
                                 for (DataSnapshot anuncios: pecas.getChildren()){
 
                                     Anuncio anuncio = anuncios.getValue(Anuncio.class);
-                                    listaAnuncios.add(anuncio);
+                                    listaAnuncios.add(0, anuncio);
 
 
                                 }
@@ -99,12 +112,207 @@ public class HomeFragment extends Fragment {
         });
 
 
+        buttonMarca = root.findViewById(R.id.buttonMarca);
+        buttonMarca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtrarPorMarca();
+            }
+        });
+
+        buttonModelo = root.findViewById(R.id.buttonModelo);
+        buttonModelo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtrarPorModelo();
+            }
+        });
+
 
 
 
 
         return root;
     }
+
+//////////////filtrarpelosbotoes
+
+    public void filtrarPorMarca(){
+
+        android.app.AlertDialog.Builder dialogMarca = new android.app.AlertDialog.Builder(getContext());
+        dialogMarca.setTitle("Selecione uma marca");
+
+        //Configura o spinner
+        View viewSpinner = getLayoutInflater().inflate(R.layout.dialog_spinner, null);
+        //
+
+        final Spinner spinnerMarca = viewSpinner.findViewById(R.id.spinnerFiltro);
+
+        //spinner de marcas
+        String[] marca = getResources().getStringArray(R.array.marca);
+        ArrayAdapter<String> adapterMarca = new ArrayAdapter<String>(
+                getContext(), android.R.layout.simple_spinner_item,
+                marca
+        );
+        adapterMarca.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+        spinnerMarca.setAdapter( adapterMarca );
+        //
+
+        dialogMarca.setView( viewSpinner );
+
+        dialogMarca.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                filtroMarca = spinnerMarca.getSelectedItem().toString();
+                Log.d("filtro", "filtro :" + filtroMarca);
+                recuperarAnunciosPorMarca();
+                filtrandoPorModelo = true;
+
+            }
+        });
+
+        dialogMarca.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        android.app.AlertDialog dialog = dialogMarca.create();
+        dialog.show();
+
+    }
+
+    public void filtrarPorModelo(){
+
+        if( filtrandoPorModelo == true){
+            android.app.AlertDialog.Builder dialogMarca = new android.app.AlertDialog.Builder(getContext());
+            dialogMarca.setTitle("Selecione uma Modelo");
+
+            //Configura o spinner
+            View viewSpinner = getLayoutInflater().inflate(R.layout.dialog_spinner, null);
+            //
+
+            final Spinner spinnerModelo = viewSpinner.findViewById(R.id.spinnerFiltro);
+
+            //spinner de modelos
+            String[] marca = getResources().getStringArray(R.array.modelo);
+            ArrayAdapter<String> adapterMarca = new ArrayAdapter<String>(
+                    getContext(), android.R.layout.simple_spinner_item,
+                    marca
+            );
+            adapterMarca.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+            spinnerModelo.setAdapter( adapterMarca );
+            //
+
+            dialogMarca.setView( viewSpinner );
+
+            dialogMarca.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    filtroModelo = spinnerModelo.getSelectedItem().toString();
+                    recuperarAnunciosPorModelo();
+
+
+
+                }
+            });
+
+            dialogMarca.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            android.app.AlertDialog dialog = dialogMarca.create();
+            dialog.show();
+
+        }else{
+            Toast.makeText(getContext(),"Escolha primeiro a Marca de um veiculo!",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+
+
+    public void recuperarAnunciosPorMarca(){
+
+        dialog = new SpotsDialog.Builder()
+                .setContext( getContext() )
+                .setMessage("Carregando Anuncios")
+                .setCancelable( false )
+                .build();
+        dialog.show();
+
+        anunciosPublicosRef = ConfigFirebase.getFirebaseDatabase()
+                .child("anuncios")
+                .child(filtroMarca);
+
+        anunciosPublicosRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listaAnuncios.clear();
+                for(DataSnapshot modelos: dataSnapshot.getChildren()){
+                    for (DataSnapshot categorias: modelos.getChildren()){
+                        for(DataSnapshot pecas: categorias.getChildren()){
+                            for (DataSnapshot anuncios: pecas.getChildren()){
+
+                                Anuncio anuncio = anuncios.getValue(Anuncio.class);
+                                listaAnuncios.add(anuncio);
+                            }
+                        }
+                    }
+                }
+                Collections.reverse(listaAnuncios);
+                adapterAnuncios.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    public void recuperarAnunciosPorModelo(){
+
+        dialog = new SpotsDialog.Builder()
+                .setContext( getContext() )
+                .setMessage("Carregando Anuncios")
+                .setCancelable( false )
+                .build();
+        dialog.show();
+
+        anunciosPublicosRef = ConfigFirebase.getFirebaseDatabase()
+                .child("anuncios")
+                .child(filtroMarca)
+                .child( filtroModelo );
+
+        anunciosPublicosRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listaAnuncios.clear();
+                for (DataSnapshot categorias :dataSnapshot.getChildren()){
+                    for(DataSnapshot pecas: categorias.getChildren()){
+                        for (DataSnapshot anuncios: pecas.getChildren()){
+
+                            Anuncio anuncio = anuncios.getValue(Anuncio.class);
+                            listaAnuncios.add(anuncio);
+                        }
+                    }
+                }
+                Collections.reverse(listaAnuncios);
+                adapterAnuncios.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+
 
 
 
