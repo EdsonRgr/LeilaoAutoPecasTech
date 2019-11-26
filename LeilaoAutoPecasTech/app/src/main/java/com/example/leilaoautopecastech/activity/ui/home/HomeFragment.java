@@ -2,11 +2,13 @@ package com.example.leilaoautopecastech.activity.ui.home;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -22,8 +24,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leilaoautopecastech.R;
+import com.example.leilaoautopecastech.activity.DetalhesAnuncio;
 import com.example.leilaoautopecastech.activity.adapter.AdapterAnuncios;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.helper.RecyclerItemClickListener;
 import com.example.leilaoautopecastech.model.Anuncio;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,9 +62,7 @@ public class HomeFragment extends Fragment {
                 .child("anuncios");
 
 
-
-
-        //reciclyview
+        //reciclerview
         RecyclerView recyclerAnunciosPublicos  = (RecyclerView) root.findViewById(R.id.recyclerAnunciosPublicos);
 
         recyclerAnunciosPublicos.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -68,6 +70,34 @@ public class HomeFragment extends Fragment {
         adapterAnuncios = new AdapterAnuncios(listaAnuncios, getContext());
         recyclerAnunciosPublicos.setAdapter( adapterAnuncios );
         recyclerAnunciosPublicos.smoothScrollToPosition(0);
+
+        recyclerAnunciosPublicos.addOnItemTouchListener(
+                 new RecyclerItemClickListener(
+                         getContext(),
+                         recyclerAnunciosPublicos,
+                         new RecyclerItemClickListener.OnItemClickListener() {
+                             @Override
+                             public void onItemClick(View view, int position) {
+                                 Anuncio anunciSelecionado = listaAnuncios.get(position);
+                                 Intent i = new Intent(getActivity(), DetalhesAnuncio.class);
+                                 i.putExtra("AnuncioSelecionado" , anunciSelecionado);
+                                 startActivity( i );
+                             }
+
+                             @Override
+                             public void onLongItemClick(View view, int position) {
+
+                             }
+
+                             @Override
+                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                             }
+                         }
+                 )
+
+        );
+
         //
 
 
@@ -134,6 +164,7 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
 
 //////////////filtrarpelosbotoes
 
