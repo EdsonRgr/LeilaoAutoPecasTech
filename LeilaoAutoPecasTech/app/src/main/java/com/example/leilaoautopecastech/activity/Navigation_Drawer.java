@@ -93,7 +93,7 @@ public class Navigation_Drawer extends AppCompatActivity {
 
 
                 R.id.nav_home, R.id.nav_meusanuncios, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_perfil, R.id.sair)
+                R.id.nav_tools, R.id.nav_perfil)
 
 
 
@@ -121,9 +121,6 @@ public class Navigation_Drawer extends AppCompatActivity {
                 if(destination.getId() == R.id.nav_perfil){
                     Toast.makeText(Navigation_Drawer.this, "PERFIL", Toast.LENGTH_SHORT).show();
                 }
-                if(destination.getId() == R.id.sair){
-
-                }
 
             }
         });
@@ -149,7 +146,7 @@ public class Navigation_Drawer extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Navigation_Drawer.this);
         builder.setTitle("Deseja sair ?");
-        builder.setMessage(" Precione Sim para sair");
+        builder.setMessage(" Pressione Sim para sair");
         builder.setCancelable(true);
         builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
