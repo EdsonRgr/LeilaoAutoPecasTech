@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseTooManyRequestsException;
@@ -46,6 +47,24 @@ public class UserFirebase {
 
 
 
+    }
+
+    public static PessoaFisica getDadodsUsuarioLogado(){
+
+        FirebaseUser firebaseUser = getUsuatioAtual();
+
+        PessoaFisica pessoaFisica = new PessoaFisica();
+        pessoaFisica.setEmail( firebaseUser.getEmail());
+        pessoaFisica.setNome( firebaseUser.getDisplayName());
+        pessoaFisica.setidUsuario(firebaseUser.getUid());
+
+        if(firebaseUser.getPhotoUrl() == null){
+            pessoaFisica.setIdImg("");
+        }else{
+            pessoaFisica.setIdImg( firebaseUser.getPhotoUrl().toString() );
+        }
+
+        return pessoaFisica;
     }
 
 }

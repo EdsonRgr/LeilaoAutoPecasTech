@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.Base64Custom;
+import com.example.leilaoautopecastech.helper.UserFirebase;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -78,6 +79,8 @@ public class CadastroPF_Activity extends AppCompatActivity {
                     pessoaFisica.setidUsuario( idUsuario );
                     //Log.i("testando", task.getResult().getUser().getUid());
                     pessoaFisica.salvarPessoaFisica();
+
+                    UserFirebase.updateNomeUser(pessoaFisica.getNome());
 
                     finish();
 

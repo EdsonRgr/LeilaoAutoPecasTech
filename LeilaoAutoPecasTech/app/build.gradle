@@ -64,6 +64,9 @@ dependencies {
     //carousel view
     implementation 'com.synnapps:carouselview:0.1.5'
 
+    // circle imageView
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

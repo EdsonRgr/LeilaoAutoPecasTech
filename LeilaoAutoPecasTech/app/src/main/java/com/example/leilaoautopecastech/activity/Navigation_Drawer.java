@@ -8,7 +8,9 @@ import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.Slider.Slider;
 import com.example.leilaoautopecastech.activity.adapter.AdapterAnuncios;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.helper.UserFirebase;
 import com.example.leilaoautopecastech.model.Anuncio;
+import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,6 +29,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +43,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -56,6 +60,7 @@ public class Navigation_Drawer extends AppCompatActivity {
     private android.app.AlertDialog dialog;
     private List<Anuncio> listaAnuncios = new ArrayList<>();
     private AdapterAnuncios adapterAnuncios;
+    private PessoaFisica usuarioLogado;
 
 
     private FirebaseAuth autenticacao;
@@ -67,8 +72,19 @@ public class Navigation_Drawer extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        View headerView = navigationView.getHeaderView(0);
+
+        TextView NomePerfil = (TextView) headerView.findViewById(R.id.userName);
+        TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
+
+        FirebaseUser usuarioPerfil = UserFirebase.getUsuatioAtual();
+        NomePerfil.setText( usuarioPerfil.getDisplayName());
+        EmailPerfil.setText( usuarioPerfil.getEmail());
 
 
         // Passing each menu ID as a set of Ids because each

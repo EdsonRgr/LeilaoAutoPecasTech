@@ -20,6 +20,15 @@ public class PessoaFisica extends Pessoa {
 
     }
 
+    public void atualizar(){
+        DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
+        firebase.child("PessoaFisica")
+                .child(this.getidUsuario());
+
+
+
+    }
+
     public String getNome() {
         return nome;
     }

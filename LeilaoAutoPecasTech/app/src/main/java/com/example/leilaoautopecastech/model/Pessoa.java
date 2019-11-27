@@ -6,7 +6,7 @@ import com.google.firebase.database.Exclude;
 public class Pessoa {
 
     public String idUsuario;
-    private int idImg;
+    private String idImg;
     private String email;
     private String senha;
 
@@ -15,12 +15,12 @@ public class Pessoa {
 
     }
 
-
     @Exclude
-    public int getidImg() {
+    public String getIdImg() {
         return idImg;
     }
-    public void setidImg(int idImg) {
+
+    public void setIdImg(String idImg) {
         this.idImg = idImg;
     }
 
