@@ -141,7 +141,7 @@
         android:padding="10dp"
         android:textSize="20dp"
         android:inputType="phone"
-        app:met_mask="(##) #####-####"/>
+        app:met_mask="+55(##) #####-####"/>
 
 
 

@@ -71,17 +71,11 @@ public class DetalhesAnuncio extends AppCompatActivity {
 
     public void entrarEmContato(View view){
 
-/*
-* Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse("http://api.whatsapp.com/send?phone" + anuncioSelecionado.getTelefone()+ "Bom dia, boa tarde, boa noite"));
-        startActivity( i );
-*
-*
-* */
 
-
-        Intent i = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", anuncioSelecionado.getTelefone(),null));
+ Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("http://api.whatsapp.com/send?phone" + anuncioSelecionado.getTelefone()));
         startActivity( i );
+
 
     }
 
