@@ -44,13 +44,13 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/circulo_drawable"
         android:onClick="btCadastrarPF"
         android:text="Pessoa Fisica"
-        android:background="@drawable/circulo_drawable"
         app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
