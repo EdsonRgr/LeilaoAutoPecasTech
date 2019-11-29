@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/padrao"
+            android:src="@drawable/padraoPerfil"
             app:civ_border_color="@color/colorPrimaryDark"
 
             app:civ_border_width="2dp" />

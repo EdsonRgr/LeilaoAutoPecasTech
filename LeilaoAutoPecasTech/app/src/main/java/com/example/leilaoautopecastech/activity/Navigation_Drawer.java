@@ -52,6 +52,8 @@ import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
+import static com.example.leilaoautopecastech.helper.UserFirebase.getUsuatioAtual;
+
 public class Navigation_Drawer extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -72,7 +74,10 @@ public class Navigation_Drawer extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -82,7 +87,11 @@ public class Navigation_Drawer extends AppCompatActivity {
         TextView NomePerfil = (TextView) headerView.findViewById(R.id.userName);
         TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
 
-        FirebaseUser usuarioPerfil = UserFirebase.getUsuatioAtual();
+
+       redirecionaUsuario();
+
+
+        FirebaseUser usuarioPerfil = getUsuatioAtual();
         NomePerfil.setText( usuarioPerfil.getDisplayName());
         EmailPerfil.setText( usuarioPerfil.getEmail());
 
@@ -126,6 +135,60 @@ public class Navigation_Drawer extends AppCompatActivity {
         });
 
     }
+
+    public void hideItem()
+    {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_Menu = navigationView.getMenu();
+        nav_Menu.findItem(R.id.nav_meusanuncios).setVisible(false);
+    }
+
+
+
+    ///////////
+    public void redirecionaUsuario(){
+
+        DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
+                .child("PessoaFisica")
+                .child(getIdentificadorUsuario());
+
+        usuarioRef.addListenerForSingleValueEvent (new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                PessoaFisica pessoaFisica = dataSnapshot.getValue(PessoaFisica.class);
+
+                String tipoUsuario = pessoaFisica.getTipo();
+
+                if(tipoUsuario.equals("pessoaFisica")){
+                    hideItem();
+                    Toast.makeText(Navigation_Drawer.this, "Testando", Toast.LENGTH_SHORT).show();
+
+                }else{
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public static String getIdentificadorUsuario(){
+        return getUsuatioAtual().getUid();
+
+    }
+
+    //////////////
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

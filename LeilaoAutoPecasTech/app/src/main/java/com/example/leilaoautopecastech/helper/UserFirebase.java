@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.model.Pessoa;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -13,6 +14,10 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 public class UserFirebase {
 
@@ -67,4 +72,44 @@ public class UserFirebase {
         return pessoaFisica;
     }
 
+/*
+    public static void redirecionaUsuario(){
+
+        DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
+                .child("PessoaFisica")
+                .child(getIdentificadorUsuario());
+
+        usuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                PessoaFisica pessoaFisica = dataSnapshot.getValue(PessoaFisica.class);
+
+                String tipoUsuario = pessoaFisica.getTipo();
+
+                if(tipoUsuario.equals("pessoaFisica")){
+                    hideItem();
+
+                }else{
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public static String getIdentificadorUsuario(){
+        return getUsuatioAtual().getUid();
+
+    }
+
+*/
 }

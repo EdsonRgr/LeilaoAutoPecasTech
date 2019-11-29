@@ -87,6 +87,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
                     .setContext( this )
                     .setMessage("Salvando essa fita ae")
                     .setCancelable( false )
+                    .setTheme(R.style.Custom)
                     .build();
             dialog.show();
 

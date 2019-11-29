@@ -9,10 +9,19 @@ public class Pessoa {
     private String idImg;
     private String email;
     private String senha;
+    private String tipo;
 
 
     public Pessoa () {
 
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Exclude

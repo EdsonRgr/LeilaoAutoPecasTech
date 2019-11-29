@@ -27,6 +27,7 @@ public class ShareFragment extends Fragment {
     private TextInputEditText editNomePerfil, editEmailPerfil;
     private Button buttonEdit;
     private PessoaFisica usuarioLogado;
+    private String teste = "Edson Roger";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +49,15 @@ public class ShareFragment extends Fragment {
         FirebaseUser usuarioPerfil = UserFirebase.getUsuatioAtual();
         editNomePerfil.setText( usuarioPerfil.getDisplayName());
         editEmailPerfil.setText( usuarioPerfil.getEmail());
+        if( usuarioPerfil.getDisplayName() == teste){
+
+            Toast.makeText(getContext(), "deu certo", Toast.LENGTH_SHORT).show();
+
+
+        }else{
+            Toast.makeText(getContext(), "nada ver", Toast.LENGTH_SHORT).show();
+
+        }
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override

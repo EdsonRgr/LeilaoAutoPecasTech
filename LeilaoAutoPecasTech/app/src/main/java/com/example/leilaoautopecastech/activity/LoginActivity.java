@@ -19,10 +19,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
+import dmax.dialog.SpotsDialog;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText campoEmail, campoSenha;
     private FirebaseAuth autenticacao;
+    private android.app.AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void logarUsuario(PessoaFisica pessoaFisica){
+
+
 
         autenticacao.signInWithEmailAndPassword(
                 pessoaFisica.getEmail(), pessoaFisica.getSenha()
@@ -70,6 +75,14 @@ public class LoginActivity extends AppCompatActivity {
 
     public void validarAutenticacaoUsuario (View view){
 
+        dialog = new SpotsDialog.Builder()
+                .setContext( this )
+                .setMessage("Aguarde so um momento ...")
+                .setCancelable( false )
+                .setTheme(R.style.Custom)
+                .build();
+        dialog.show();
+
         String email = campoEmail.getText().toString();
         String senha = campoSenha.getText().toString();
 
@@ -95,8 +108,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void entrarTelaPrincipal(){
+
+
+
         Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
         startActivity(intent);
+        dialog.dismiss();
         finish();
 
     }

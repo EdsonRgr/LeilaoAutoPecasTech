@@ -80,6 +80,7 @@ public class meus_anunciosFragment extends Fragment {
                 .setContext( getContext() )
                 .setMessage("Carregando Anuncios")
                 .setCancelable( false )
+                .setTheme(R.style.Custom)
                 .build();
         dialog.show();
 

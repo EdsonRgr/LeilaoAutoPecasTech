@@ -17,7 +17,7 @@ public class PessoaJuridica extends Pessoa {
     }
     public void salvarPessoaJuridica(){
         DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
-       firebase.child("PessoaJuridica")
+       firebase.child("PessoaFisica")
                 .child(this.getidUsuario())
                 .setValue(this);
 

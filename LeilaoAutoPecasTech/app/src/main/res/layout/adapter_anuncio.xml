@@ -18,7 +18,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/padrao" />
+            app:srcCompat="@drawable/padraoPerfil" />
 
         <LinearLayout
             android:layout_width="match_parent"

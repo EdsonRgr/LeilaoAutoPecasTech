@@ -107,6 +107,7 @@ public class HomeFragment extends Fragment {
                 .setContext( getContext() )
                 .setMessage("Carregando Anuncios")
                 .setCancelable( false )
+                .setTheme(R.style.Custom)
                 .build();
         dialog.show();
         listaAnuncios.clear();
