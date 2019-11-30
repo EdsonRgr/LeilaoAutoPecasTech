@@ -84,7 +84,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/circulo_drawable"
-                    android:hint="Telefone"
+                    android:hint="Celular"
                     android:inputType="number"
                     android:padding="10dp" />
 
