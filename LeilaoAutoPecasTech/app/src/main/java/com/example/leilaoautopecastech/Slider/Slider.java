@@ -45,11 +45,7 @@ public class Slider extends IntroActivity {
                 .fragment(R.layout.intro_3)
                 .build()
         );
-        addSlide(new FragmentSlide.Builder()
-                .background(android.R.color.white)
-                .fragment(R.layout.intro_4)
-                .build()
-        );
+
         addSlide(new FragmentSlide.Builder()
                 .background(android.R.color.white)
                 .fragment(R.layout.intro_cadastro)
