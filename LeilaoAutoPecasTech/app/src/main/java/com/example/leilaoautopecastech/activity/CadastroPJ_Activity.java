@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ValidaCNPJ;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
+import com.example.leilaoautopecastech.helper.UserPFFirebase;
+import com.example.leilaoautopecastech.helper.UserPJFirebase;
 import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -129,6 +131,12 @@ public class CadastroPJ_Activity extends AppCompatActivity {
                     String idUsuario = task.getResult().getUser().getUid();
                     pessoaJuridica.setidUsuario( idUsuario );
                     pessoaJuridica.salvarPessoaJuridica();
+
+                    UserPJFirebase.updateNomeUserPj(pessoaJuridica.getNomeF());
+                    UserPJFirebase.updateTelUserPj(pessoaJuridica.getTelefone());
+
+                //    UserPJFirebase.updateNomeUser(pessoaJuridica.getEndereco());
+                   // UserPJFirebase.updateNomeUser(pessoaJuridica.getTelefone());
 
                     Toast.makeText(CadastroPJ_Activity.this,"Sucesso ao cadastrar Pessoa Juridica !",
                             Toast.LENGTH_SHORT).show();

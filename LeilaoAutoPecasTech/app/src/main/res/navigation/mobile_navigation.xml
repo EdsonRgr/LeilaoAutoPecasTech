@@ -17,11 +17,7 @@
         android:label="@string/menu_MeusAnuncios"
         tools:layout="@layout/fragment_meus_anuncios" />
 
-    <fragment
-        android:id="@+id/nav_perfil"
-        android:name="com.example.leilaoautopecastech.activity.ui.perfil.perfil_PfFragment"
-        android:label="@string/menu_perfil"
-        tools:layout="@layout/fragment_perfil" />
+
 
 
 </navigation>

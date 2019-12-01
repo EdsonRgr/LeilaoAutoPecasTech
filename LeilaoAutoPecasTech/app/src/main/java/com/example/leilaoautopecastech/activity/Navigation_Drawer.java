@@ -1,20 +1,22 @@
 package com.example.leilaoautopecastech.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.Slider.Slider;
 import com.example.leilaoautopecastech.activity.adapter.AdapterAnuncios;
+import com.example.leilaoautopecastech.activity.ui.perfil.perfilPf;
+import com.example.leilaoautopecastech.activity.ui.perfil.perfilPj;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
-import com.example.leilaoautopecastech.helper.UserFirebase;
+import com.example.leilaoautopecastech.helper.Permissoes;
+import com.example.leilaoautopecastech.helper.UserPFFirebase;
 import com.example.leilaoautopecastech.model.Anuncio;
 import com.example.leilaoautopecastech.model.PessoaFisica;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -34,6 +36,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -41,19 +44,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import dmax.dialog.SpotsDialog;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.example.leilaoautopecastech.helper.UserFirebase.getDadodsUsuarioLogadoPJ;
-import static com.example.leilaoautopecastech.helper.UserFirebase.getUsuatioAtual;
+import static com.example.leilaoautopecastech.helper.UserPFFirebase.getUsuatioAtual;
 
 public class Navigation_Drawer extends AppCompatActivity {
 
@@ -67,6 +66,7 @@ public class Navigation_Drawer extends AppCompatActivity {
 
 
     private FirebaseAuth autenticacao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +82,23 @@ public class Navigation_Drawer extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 //
+        usuarioLogado = UserPFFirebase.getDadodsUsuarioLogadoPF();
+
         View headerView = navigationView.getHeaderView(0);
+
+
 
         TextView NomePerfil = (TextView) headerView.findViewById(R.id.userName);
         TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
+        CircleImageView imagemPerfil = (CircleImageView) headerView.findViewById(R.id.imagePerfilLogado);
 
+        String caminhoFoto = usuarioLogado.getIdImg();
+        if(caminhoFoto!= null){
+            Uri url = Uri.parse( caminhoFoto );
+            Picasso.get().load(url).into(imagemPerfil);
+        }else{
+            imagemPerfil.setImageResource(R.drawable.user);
+        }
 //
        redirecionaUsuario();
 
@@ -94,13 +106,13 @@ public class Navigation_Drawer extends AppCompatActivity {
         FirebaseUser usuarioPerfil = getUsuatioAtual();
         NomePerfil.setText( usuarioPerfil.getDisplayName());
         EmailPerfil.setText( usuarioPerfil.getEmail());
+
 //
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_meusanuncios,
-                R.id.nav_perfil)
+                R.id.nav_home, R.id.nav_meusanuncios)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -122,13 +134,9 @@ public class Navigation_Drawer extends AppCompatActivity {
                     Toast.makeText(Navigation_Drawer.this, "Meus Anuncios", Toast.LENGTH_SHORT).show();
                 }
 
-                if(destination.getId() == R.id.nav_perfil){
-                    Toast.makeText(Navigation_Drawer.this, "PERFIL", Toast.LENGTH_SHORT).show();
-                }
-
             }
         });
-
+        
     }
 
 
@@ -137,7 +145,7 @@ public class Navigation_Drawer extends AppCompatActivity {
     ///////////
     public void redirecionaUsuario(){
 
-        usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
+        //usuarioLogado = UserPFFirebase.getDadodsUsuarioLogadoPF();
 
         DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
                 .child("usuarios")
@@ -153,10 +161,10 @@ public class Navigation_Drawer extends AppCompatActivity {
 
                 if(tipoUsuario.equals("pessoaFisica")){
                     hideItem();
-                    Toast.makeText(Navigation_Drawer.this, "Testando", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Navigation_Drawer.this, "Pessoa Fisica logada", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    getDadodsUsuarioLogadoPJ();
+
 
 
                 }
@@ -176,6 +184,8 @@ public class Navigation_Drawer extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
         nav_Menu.findItem(R.id.nav_meusanuncios).setVisible(false);
+        nav_Menu.findItem(R.id.nav_perfil_pj).setVisible(false);
+        nav_Menu.findItem(R.id.nav_perfil_pf).setVisible(true);
     }
 
 //////
@@ -205,6 +215,18 @@ public class Navigation_Drawer extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    public boolean perfilPF (MenuItem item){
+        Intent intent = new Intent(getApplicationContext(), perfilPf.class);
+        startActivity(intent);
+
+        return true;
+    }
+    public boolean perfilPJ (MenuItem item){
+        Intent intent = new Intent(getApplicationContext(), perfilPj.class);
+        startActivity(intent);
+
+        return true;
+    }
 
     public boolean sair (MenuItem item){
 
@@ -237,8 +259,10 @@ public class Navigation_Drawer extends AppCompatActivity {
 
 
 
-
-
+    @Override
+    public void recreate() {
+        super.recreate();
+    }
 }
 
 

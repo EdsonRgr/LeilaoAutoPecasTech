@@ -14,40 +14,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.ui.perfil.perfilPf"
+            android:parentActivityName=".activity.Navigation_Drawer"
+            ></activity>
 
-        <activity android:name=".activity.DetalhesAnuncio"
-            android:parentActivityName=".activity.Navigation_Drawer">
+        <activity android:name=".activity.ui.perfil.perfilPj"
+            android:parentActivityName=".activity.Navigation_Drawer"
+            ></activity>
 
-        </activity>
-
+        <activity
+            android:name=".activity.DetalhesAnuncio"
+            android:parentActivityName=".activity.Navigation_Drawer" />
         <activity
             android:name=".activity.Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleInstance"
-            />
-
-        <activity android:name=".activity.CadastrarAnuncios"
-                android:parentActivityName=".activity.Navigation_Drawer"
-
-
-            />
-
+            android:launchMode="standard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CadastrarAnuncios"
+            android:parentActivityName=".activity.Navigation_Drawer" />
         <activity android:name=".activity.CadastroPJ_Activity" />
-
         <activity android:name=".activity.CadastroPF_Activity" />
-
         <activity android:name=".activity.LoginActivity" />
-
         <activity android:name=".Slider.Slider">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
                     android:theme="@style/Theme.Intro" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.MainActivity" />
     </application>
 

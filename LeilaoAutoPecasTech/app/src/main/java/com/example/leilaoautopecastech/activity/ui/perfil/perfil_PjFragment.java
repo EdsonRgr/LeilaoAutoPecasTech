@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.leilaoautopecastech.R;
-import com.example.leilaoautopecastech.helper.UserFirebase;
+import com.example.leilaoautopecastech.helper.UserPFFirebase;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +23,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class perfil_PjFragment extends Fragment {
 
     private CircleImageView imageEditarPerfil;
-    private TextView textAlterarFoto;
-    private TextInputEditText editNomePerfil, editEmailPerfil;
+    private TextView textAlterarFoto, editEmailPerfil;
+    private TextInputEditText editNomePerfil;
     private Button buttonEdit;
     private PessoaFisica usuarioLogado;
     private String teste = "Edson Roger";
@@ -34,7 +34,7 @@ public class perfil_PjFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
         //
-            usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
+            usuarioLogado = UserPFFirebase.getDadodsUsuarioLogadoPF();
 
 
         //
@@ -46,7 +46,7 @@ public class perfil_PjFragment extends Fragment {
         editEmailPerfil.setFocusable(false);
 
         //recuperar dados
-        FirebaseUser usuarioPerfil = UserFirebase.getUsuatioAtual();
+        FirebaseUser usuarioPerfil = UserPFFirebase.getUsuatioAtual();
         editNomePerfil.setText( usuarioPerfil.getDisplayName());
         editEmailPerfil.setText( usuarioPerfil.getEmail());
         if( usuarioPerfil.getDisplayName() == teste){
@@ -65,7 +65,7 @@ public class perfil_PjFragment extends Fragment {
 
                 String nomeAtualizado = editNomePerfil.getText().toString();
                 // atualiza o nome
-                UserFirebase.updateNomeUser( nomeAtualizado );
+                UserPFFirebase.updateNomeUser( nomeAtualizado );
 
                 //atualiza no banco
                 usuarioLogado.setNome( nomeAtualizado );

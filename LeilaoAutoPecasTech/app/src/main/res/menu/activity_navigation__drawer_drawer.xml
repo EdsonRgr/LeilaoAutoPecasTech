@@ -17,9 +17,19 @@
     <item android:title="Conta">
         <menu>
             <item
-                android:id="@+id/nav_perfil"
+                android:id="@+id/nav_perfil_pf"
                 android:icon="@drawable/conta"
-                android:title="@string/menu_perfil" />
+                android:title="Perfil PF"
+                android:onClick="perfilPF"
+                android:visible="false"
+                />
+
+            <item
+                android:id="@+id/nav_perfil_pj"
+                android:icon="@drawable/conta"
+                android:onClick="perfilPJ"
+                android:title="Perfil PJ" />
+
             <item
                 android:id="@+id/sair"
                 android:onClick="sair"

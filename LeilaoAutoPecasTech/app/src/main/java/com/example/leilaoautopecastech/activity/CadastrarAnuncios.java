@@ -75,7 +75,6 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         Toolbar toolbar = findViewById(R.id.toolbarP);
         toolbar.setTitle("Cadastrar anúncio");
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -393,5 +392,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+
 
 }

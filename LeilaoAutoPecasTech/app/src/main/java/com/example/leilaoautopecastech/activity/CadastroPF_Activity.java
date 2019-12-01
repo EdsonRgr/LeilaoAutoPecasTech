@@ -5,15 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
-import com.example.leilaoautopecastech.helper.Base64Custom;
-import com.example.leilaoautopecastech.helper.UserFirebase;
+import com.example.leilaoautopecastech.helper.UserPFFirebase;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -89,20 +87,30 @@ public class CadastroPF_Activity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    try{
+                        dialog.dismiss();
 
-                    String idUsuario = task.getResult().getUser().getUid();
-                    pessoaFisica.setidUsuario( idUsuario );
-                    pessoaFisica.salvarPessoaFisica();
-
-                    Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Pessoa Fisica !",
-                            Toast.LENGTH_SHORT).show();
+                        String idUsuario = task.getResult().getUser().getUid();
+                        pessoaFisica.setidUsuario( idUsuario );
+                        pessoaFisica.salvarPessoaFisica();
 
 
-                    UserFirebase.updateNomeUser(pessoaFisica.getNome());
-                    dialog.dismiss();
-                    finish();
+                        UserPFFirebase.updateNomeUser(pessoaFisica.getNome());
+
+                        Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Pessoa Fisica !",
+                                Toast.LENGTH_SHORT).show();
+
+
+                        finish();
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+
+                    }
+
 
                 }else{
+                    dialog.dismiss();
                     String excecao = "";
                     try {
                         throw task.getException();

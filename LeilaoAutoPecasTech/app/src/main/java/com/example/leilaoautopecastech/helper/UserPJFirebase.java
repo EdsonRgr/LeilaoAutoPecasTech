@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class UserFirebase {
+public class UserPJFirebase {
 
     public static FirebaseUser getUsuatioAtual(){
         FirebaseAuth usuario = ConfigFirebase.getFirebaseAutenticacao();
@@ -22,32 +22,49 @@ public class UserFirebase {
     }
 
 
-    public static void updateNomeUser(String nome){
+    public static void updateNomeUserPj(String NomeF){
         try{
             FirebaseUser userLogado = getUsuatioAtual();
-
             UserProfileChangeRequest perfil = new UserProfileChangeRequest
                     .Builder()
-                    .setDisplayName( nome )
+                    .setDisplayName( NomeF )
                     .build();
             userLogado.updateProfile( perfil ).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if ( !task.isSuccessful()){
-
                         Log.d("Perfil", "Erro ao atualizar o nome do perfil");
-
                     }
                 }
             });
-
         }catch ( Exception e){
             e.printStackTrace();
         }
-
-
-
     }
+
+    public static void updateTelUserPj(String telefone){
+        try{
+            FirebaseUser userLogado = getUsuatioAtual();
+            UserProfileChangeRequest perfil = new UserProfileChangeRequest
+                    .Builder()
+                    .setDisplayName( telefone )
+                    .build();
+            userLogado.updateProfile( perfil ).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if ( task.isSuccessful()){
+                        Log.d("Perfil", "Erro ao atualizar o nome do perfil");
+                    }
+                }
+            });
+        }catch ( Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
     public static PessoaJuridica getDadodsUsuarioLogadoPJ(){
 
@@ -66,7 +83,7 @@ public class UserFirebase {
 
         return pessoaJuridica;
     }
-
+/*
     public static PessoaFisica getDadodsUsuarioLogado(){
 
         FirebaseUser firebaseUser = getUsuatioAtual();

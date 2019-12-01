@@ -3,6 +3,9 @@ package com.example.leilaoautopecastech.model;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class PessoaFisica extends Pessoa {
 
@@ -13,21 +16,37 @@ public class PessoaFisica extends Pessoa {
 
     }
     public void salvarPessoaFisica(){
-        DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
-        firebase.child("usuarios")
-                .child(this.getidUsuario())
-                .setValue( this );
+        DatabaseReference firebaseRef = ConfigFirebase.getFirebaseDatabase();
+        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child(getidUsuario());
+
+        usuariosRef.setValue(this);
 
     }
 
-    public void atualizar(){
-        DatabaseReference firebase = ConfigFirebase.getFirebaseDatabase();
-        firebase.child("PessoaFisica")
-                .child(this.getidUsuario());
+    public void atualizarPerfilPF(){
+        DatabaseReference firebaseRef = ConfigFirebase.getFirebaseDatabase();
+        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child(getidUsuario());
+
+
+        Map<String, Object> valoresUsuario = converterParaMap();
+        usuariosRef.updateChildren( valoresUsuario );
+
+    }
+
+    public Map<String, Object> converterParaMap(){
+
+        HashMap<String,Object> usuarioMap = new HashMap<>();
+        usuarioMap.put("email" , getEmail());
+        usuarioMap.put("nome" , getNome());
+        usuarioMap.put("idUsuario" , getidUsuario());
+        usuarioMap.put("idImg" , getIdImg());
+        usuarioMap.put("tipo" , getTipo());
+        return usuarioMap;
 
 
 
     }
+
 
     public String getNome() {
         return nome;
