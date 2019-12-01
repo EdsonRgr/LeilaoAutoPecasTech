@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ValidaCNPJ;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
-import com.example.leilaoautopecastech.helper.Base64Custom;
 import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,16 +22,18 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.santalu.maskedittext.MaskEditText;
 
 import dmax.dialog.SpotsDialog;
 
 
-public class CadastroPJActivity extends AppCompatActivity {
+public class CadastroPJ_Activity extends AppCompatActivity {
 
-    private EditText campoNomeF , campoEmail , campoTelefone , campoEndereco , campoCNPJ , campoSenha;
+    private EditText campoNomeF , campoEmail ,  campoEndereco , campoSenha;
+    private MaskEditText campoTelefone, campoCNPJ;
     private FirebaseAuth autenticacao;
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-    private String tipoUser = "PJ";
+    private String tipoUser = "pessoaJuridica";
     private AlertDialog dialog;
 
     @Override
@@ -50,40 +50,69 @@ public class CadastroPJActivity extends AppCompatActivity {
     }
 
     public void validarUsuarioPJ (View view){
+        String fone = "";
         String textoNomeF = campoNomeF.getText().toString();
         String textoEmail = campoEmail.getText().toString();
         String textoTelefone = campoTelefone.getText().toString();
+        if(campoTelefone.getRawText() !=null){
+            fone = campoTelefone.getRawText().toString();
+        }
         String textoEndereco = campoEndereco.getText().toString();
-        String textoCNPJ = campoCNPJ.getText().toString();
+        String textoCNPJ = campoCNPJ.getRawText().toString();
         String textoSenha = campoSenha.getText().toString();
 
-        if(!textoNomeF.isEmpty() && !textoEmail.isEmpty() && !textoTelefone.isEmpty() && !textoEndereco.isEmpty() && !textoCNPJ.isEmpty() && !textoSenha.isEmpty() ){
+        if(!textoNomeF.isEmpty() && textoNomeF.length() >= 10 ){
+            if(!textoEmail.isEmpty()){
+                if(!textoTelefone.isEmpty() && fone.length() >=11 ){
+                    if(!textoEndereco.isEmpty()){
+                        if(!textoCNPJ.isEmpty()){
+                            if(!textoSenha.isEmpty()){
 
-            if ( ValidaCNPJ.isCNPJ(textoCNPJ) == true){
-                PessoaJuridica pessoaJuridica = new PessoaJuridica();
-                pessoaJuridica.setNomeF(textoNomeF);
-                pessoaJuridica.setEmail(textoEmail);
-                pessoaJuridica.setTelefone(textoTelefone);
-                pessoaJuridica.setEndereco(textoEndereco);
-                pessoaJuridica.setCNPJ(textoCNPJ);
-                pessoaJuridica.setSenha(textoSenha);
+                                if ( ValidaCNPJ.isCNPJ(textoCNPJ) == true){
+                                    PessoaJuridica pessoaJuridica = new PessoaJuridica();
+                                    pessoaJuridica.setNomeF(textoNomeF);
+                                    pessoaJuridica.setEmail(textoEmail);
+                                    pessoaJuridica.setTelefone(textoTelefone);
+                                    pessoaJuridica.setEndereco(textoEndereco);
+                                    pessoaJuridica.setCNPJ(textoCNPJ);
+                                    pessoaJuridica.setSenha(textoSenha);
+                                    pessoaJuridica.setTipo(tipoUser);
 
-                dialog = new SpotsDialog.Builder()
-                        .setContext( this )
-                        .setMessage("Perae que esta cadastrando")
-                        .setCancelable( false )
-                        .setTheme(R.style.Custom)
-                        .build();
-                dialog.show();
+                                    dialog = new SpotsDialog.Builder()
+                                            .setContext( this )
+                                            .setMessage("Perae que esta cadastrando")
+                                            .setCancelable( false )
+                                            .setTheme(R.style.Custom)
+                                            .build();
+                                    dialog.show();
 
-                pessoaJuridica.setTipo(tipoUser);
+                                    cadastrarUsuarioPJ(pessoaJuridica);
 
-                cadastrarUsuarioPJ(pessoaJuridica);
-            } else {Toast.makeText(CadastroPJActivity.this , "CNPJ invalido" , Toast.LENGTH_SHORT).show();}
+
+                                } else {
+
+                                    menssagemErro("CNPJ invalido");
+                                }
+
+
+                            }else{
+                                menssagemErro("Preencha o campo senha");
+                            }
+                        }else{
+                            menssagemErro("Preencha o campo CNPJ");
+                        }
+                    }else{
+                        menssagemErro("Preencha o campo Endereço");
+                    }
+                }else{
+                    menssagemErro("Preencha o campo telefone");
+                }
+            }else{
+                menssagemErro("Preencha o Email corretamente");
+            }
         }else{
-            Toast.makeText(CadastroPJActivity.this , "Preencha todos os dados" , Toast.LENGTH_SHORT).show();
+            menssagemErro("Preencha seu Nome corretamente");
         }
-
 
     }
 
@@ -96,13 +125,15 @@ public class CadastroPJActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
 
-                    Toast.makeText(CadastroPJActivity.this,"Sucesso ao cadastrar Usuário !",
-                            Toast.LENGTH_SHORT).show();
 
                     String idUsuario = task.getResult().getUser().getUid();
                     pessoaJuridica.setidUsuario( idUsuario );
-                   // Log.i("testando", task.getResult().getUser().getUid());
                     pessoaJuridica.salvarPessoaJuridica();
+
+                    Toast.makeText(CadastroPJ_Activity.this,"Sucesso ao cadastrar Pessoa Juridica !",
+                            Toast.LENGTH_SHORT).show();
+
+
 
                     dialog.dismiss();
                     finish();
@@ -125,13 +156,17 @@ public class CadastroPJActivity extends AppCompatActivity {
                         excecao="Erro ao cadastrar Usuário" + e.getMessage();
                         e.printStackTrace();
                     }
-                    Toast.makeText(CadastroPJActivity.this,
+                    Toast.makeText(CadastroPJ_Activity.this,
                             excecao,Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
+    private void menssagemErro(String mensagem){
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+    
 
     }
 

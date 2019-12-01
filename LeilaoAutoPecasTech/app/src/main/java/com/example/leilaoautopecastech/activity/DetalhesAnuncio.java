@@ -1,6 +1,7 @@
 package com.example.leilaoautopecastech.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -27,6 +28,11 @@ public class DetalhesAnuncio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_anuncio);
+
+        Toolbar toolbar = findViewById(R.id.toolbarP);
+        toolbar.setTitle("Detalhes do anúncio");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Configurar toolbar
 
@@ -73,7 +79,7 @@ public class DetalhesAnuncio extends AppCompatActivity {
 
 
  Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse("http://api.whatsapp.com/send?phone" + anuncioSelecionado.getTelefone()));
+        i.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + anuncioSelecionado.getTelefone()));
         startActivity( i );
 
 

@@ -12,14 +12,6 @@
             android:id="@+id/nav_meusanuncios"
             android:icon="@drawable/store"
             android:title="@string/menu_MeusAnuncios" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
     </group>
 
     <item android:title="Conta">

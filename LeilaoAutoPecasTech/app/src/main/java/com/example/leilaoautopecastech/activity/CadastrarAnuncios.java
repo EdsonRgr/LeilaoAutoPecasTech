@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.app.Activity;
@@ -46,6 +47,8 @@ import static android.provider.MediaStore.*;
 
 public class CadastrarAnuncios extends AppCompatActivity implements View.OnClickListener{
 
+
+
     private android.app.AlertDialog dialog;
 
     private StorageReference storage;
@@ -68,6 +71,16 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_anuncios);
+
+        Toolbar toolbar = findViewById(R.id.toolbarP);
+        toolbar.setTitle("Cadastrar anúncio");
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        
 
         storage = ConfigFirebase.getFirebaseStorage();
 
@@ -132,8 +145,9 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
                     if (totalfotos == listaURLFotos.size()){
                         anuncio.setFotos( listaURLFotos );
                         anuncio.salvar();
-                        dialog.dismiss();
+
                         finish();
+                        dialog.dismiss();
                     }
 
                 } else {
@@ -379,4 +393,5 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 }

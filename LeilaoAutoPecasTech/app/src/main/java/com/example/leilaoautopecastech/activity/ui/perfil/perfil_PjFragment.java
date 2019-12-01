@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class ShareFragment extends Fragment {
+public class perfil_PjFragment extends Fragment {
 
     private CircleImageView imageEditarPerfil;
     private TextView textAlterarFoto;

@@ -7,13 +7,21 @@
     android:layout_height="match_parent">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.DetalhesAnuncio">
+
+        <include layout="@layout/toolbar"></include>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".activity.DetalhesAnuncio">
+    >
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
@@ -132,4 +140,5 @@
 
 
 </LinearLayout>
+    </LinearLayout>
 </ScrollView>

@@ -52,6 +52,7 @@ import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
+import static com.example.leilaoautopecastech.helper.UserFirebase.getDadodsUsuarioLogadoPJ;
 import static com.example.leilaoautopecastech.helper.UserFirebase.getUsuatioAtual;
 
 public class Navigation_Drawer extends AppCompatActivity {
@@ -75,39 +76,34 @@ public class Navigation_Drawer extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        //
 
-        usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
-
-
+//
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-
+//
         View headerView = navigationView.getHeaderView(0);
 
         TextView NomePerfil = (TextView) headerView.findViewById(R.id.userName);
         TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
 
-
+//
        redirecionaUsuario();
 
 
         FirebaseUser usuarioPerfil = getUsuatioAtual();
         NomePerfil.setText( usuarioPerfil.getDisplayName());
         EmailPerfil.setText( usuarioPerfil.getEmail());
-
+//
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-
-
-                R.id.nav_home, R.id.nav_meusanuncios, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_perfil)
-
-
-
+                R.id.nav_home, R.id.nav_meusanuncios,
+                R.id.nav_perfil)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -116,7 +112,6 @@ public class Navigation_Drawer extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull
                     NavDestination destination, @Nullable Bundle arguments) {
-
 
                 if(destination.getId() == R.id.nav_home){
                     Toast.makeText(Navigation_Drawer.this, "feed!", Toast.LENGTH_SHORT).show();
@@ -136,20 +131,16 @@ public class Navigation_Drawer extends AppCompatActivity {
 
     }
 
-    public void hideItem()
-    {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Menu nav_Menu = navigationView.getMenu();
-        nav_Menu.findItem(R.id.nav_meusanuncios).setVisible(false);
-    }
 
 
 
     ///////////
     public void redirecionaUsuario(){
 
+        usuarioLogado = UserFirebase.getDadodsUsuarioLogado();
+
         DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
-                .child("PessoaFisica")
+                .child("usuarios")
                 .child(getIdentificadorUsuario());
 
         usuarioRef.addListenerForSingleValueEvent (new ValueEventListener() {
@@ -165,6 +156,7 @@ public class Navigation_Drawer extends AppCompatActivity {
                     Toast.makeText(Navigation_Drawer.this, "Testando", Toast.LENGTH_SHORT).show();
 
                 }else{
+                    getDadodsUsuarioLogadoPJ();
 
 
                 }
@@ -178,6 +170,15 @@ public class Navigation_Drawer extends AppCompatActivity {
         });
 
     }
+
+    public void hideItem()
+    {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_Menu = navigationView.getMenu();
+        nav_Menu.findItem(R.id.nav_meusanuncios).setVisible(false);
+    }
+
+//////
 
     public static String getIdentificadorUsuario(){
         return getUsuatioAtual().getUid();

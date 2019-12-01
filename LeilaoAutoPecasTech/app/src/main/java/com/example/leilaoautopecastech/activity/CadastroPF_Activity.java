@@ -90,14 +90,13 @@ public class CadastroPF_Activity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
 
-
-                    Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Usuário !",
-                            Toast.LENGTH_SHORT).show();
-
                     String idUsuario = task.getResult().getUser().getUid();
                     pessoaFisica.setidUsuario( idUsuario );
-                    //Log.i("testando", task.getResult().getUser().getUid());
                     pessoaFisica.salvarPessoaFisica();
+
+                    Toast.makeText(CadastroPF_Activity.this,"Sucesso ao cadastrar Pessoa Fisica !",
+                            Toast.LENGTH_SHORT).show();
+
 
                     UserFirebase.updateNomeUser(pessoaFisica.getNome());
                     dialog.dismiss();

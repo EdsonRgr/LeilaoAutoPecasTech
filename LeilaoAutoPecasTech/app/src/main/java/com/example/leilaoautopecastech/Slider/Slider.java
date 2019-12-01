@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.activity.CadastroPF_Activity;
-import com.example.leilaoautopecastech.activity.CadastroPJActivity;
+import com.example.leilaoautopecastech.activity.CadastroPJ_Activity;
 import com.example.leilaoautopecastech.activity.LoginActivity;
 import com.example.leilaoautopecastech.activity.Navigation_Drawer;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
@@ -67,7 +67,7 @@ public class Slider extends IntroActivity {
     }
 
     public void btCadastrarPJ (View view){
-        startActivity(new Intent(this, CadastroPJActivity.class));
+        startActivity(new Intent(this, CadastroPJ_Activity.class));
     }
 
     public void btEntrar (View view){

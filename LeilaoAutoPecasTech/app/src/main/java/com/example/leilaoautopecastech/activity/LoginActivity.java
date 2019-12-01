@@ -58,10 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         throw task.getException();
                     }catch (FirebaseAuthInvalidUserException e){
+                        dialog.dismiss();
                         excecao = "PessoaFisica nao esta cadastrado.";
                     }catch (FirebaseAuthInvalidCredentialsException e){
+                        dialog.dismiss();
                         excecao = "E-mail e senha nao correspondem a um pessoaFisica cadastrado";
                     }catch (Exception e){
+                        dialog.dismiss();
                         excecao="Erro " + e.getMessage();
                         e.printStackTrace();
                     }
@@ -96,11 +99,12 @@ public class LoginActivity extends AppCompatActivity {
                     logarUsuario(pessoaFisica);
 
                 }else{
-
+                    dialog.dismiss();
                     Toast.makeText(LoginActivity.this,
                             "Preencha a Senha",Toast.LENGTH_SHORT).show();
                 }
             }else {
+                dialog.dismiss();
                 Toast.makeText(LoginActivity.this,
                         "Preencha o Email !",
                         Toast.LENGTH_SHORT).show();
@@ -108,8 +112,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void entrarTelaPrincipal(){
-
-
 
         Intent intent = new Intent(LoginActivity.this, Navigation_Drawer.class);
         startActivity(intent);
