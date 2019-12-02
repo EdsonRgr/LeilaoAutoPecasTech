@@ -42,7 +42,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/circulo_drawable"
                 android:gravity="left|center_vertical"
-
+                android:drawableLeft="@drawable/ic_email_black_24dp"
                 android:hint="Email"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
@@ -56,6 +56,7 @@
                 android:background="@drawable/circulo_drawable"
                 android:hint="Password"
                 android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:padding="10dp" />
 
             <Button

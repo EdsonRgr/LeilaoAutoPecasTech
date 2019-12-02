@@ -66,7 +66,7 @@
                     android:id="@+id/editAlterarEndereco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawableLeft="@drawable/ic_local_24dp"
                     android:hint="Endereço" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Telefone"
                     android:inputType="phone"
-                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawableLeft="@drawable/ic_smartphone_black_24dp"
                     app:met_mask="+55(##) #####-####"/>
 
 
@@ -107,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:drawableLeft="@drawable/ic_email_black_24dp"
+                android:drawableLeft="@drawable/ic_business_black_24dp"
                 android:hint="CNPJ"
                 android:layout_margin="5dp"
                 android:textSize="18sp"
