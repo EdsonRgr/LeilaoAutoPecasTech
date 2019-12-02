@@ -169,7 +169,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:background="@drawable/button_style"
+            android:background="@drawable/button_mensageiro"
             android:onClick="entrarEmContato"
             android:text="Entrar em Contato"
             android:textColor="@color/white" />
@@ -178,9 +178,10 @@
             android:id="@+id/detalheButton2"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_style"
+            android:background="@drawable/button_mensageiro"
             android:onClick="mandarMensagemNoWhatsApp"
             android:text="Iniciar Conversa"
+
             android:textColor="@color/white" />
 
     </LinearLayout>
