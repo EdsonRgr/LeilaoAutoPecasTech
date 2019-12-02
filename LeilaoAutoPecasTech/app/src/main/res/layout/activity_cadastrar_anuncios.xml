@@ -24,157 +24,157 @@
             android:padding="10dp">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/cadImgAnuncio1"
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/padrao" />
+                <ImageView
+                    android:id="@+id/cadImgAnuncio1"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
 
-        <ImageView
-            android:id="@+id/cadImgAnuncio2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/padrao" />
+                <ImageView
+                    android:id="@+id/cadImgAnuncio2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
 
-        <ImageView
-            android:id="@+id/cadImgAnuncio3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/padrao" />
+                <ImageView
+                    android:id="@+id/cadImgAnuncio3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:text="Marca:"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="Marca:"
+                    android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinnerMarca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1" />
+                <Spinner
+                    android:id="@+id/spinnerMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Modelo:"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="351dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Modelo:"
+                    android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinnerModelo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:text="Peças Disponiveis"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:text="Peças Disponiveis"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_marginBottom="15sp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginBottom="15sp"
+                android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/spinnerCategoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+                <Spinner
+                    android:id="@+id/spinnerCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-        <Spinner
-            android:id="@+id/spinnerPecas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerPecas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/TituloCad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_edit_text"
-        android:ems="10"
-        android:hint="Titulo"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textSize="20dp" />
+            <EditText
+                android:id="@+id/TituloCad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edit_text"
+                android:ems="10"
+                android:hint="Titulo"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="20dp" />
 
-    <com.blackcat.currencyedittext.CurrencyEditText
-        android:id="@+id/ValorCad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_edit_text"
-        android:ems="10"
-        android:hint="44,44"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textSize="20dp"
-        />
+            <com.blackcat.currencyedittext.CurrencyEditText
+                android:id="@+id/ValorCad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edit_text"
+                android:ems="10"
+                android:hint="44,44"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="20dp"
+                />
 
-    <com.santalu.maskedittext.MaskEditText
-        android:id="@+id/TelefoneCad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_edit_text"
-        android:ems="10"
-        android:hint="Telefone"
-        android:padding="10dp"
-        android:textSize="20dp"
-        android:inputType="phone"
-        app:met_mask="+55(##) #####-####"/>
-
-
-
-    <EditText
-        android:id="@+id/DescricaoCad"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_edit_text"
-        android:ems="10"
-        android:hint="Descrição"
-        android:inputType="textPersonName"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/CadastrarAnuncio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_style"
-        android:onClick="validarDadosAnuncio"
-        android:text="Cadastrar Anuncio"
-        android:textColor="#ffffff" />
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/TelefoneCad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edit_text"
+                android:ems="10"
+                android:hint="Telefone"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:inputType="phone"
+                app:met_mask="+55(##) #####-####"/>
 
 
-</LinearLayout>
+
+            <EditText
+                android:id="@+id/DescricaoCad"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_edit_text"
+                android:ems="10"
+                android:hint="Descrição"
+                android:inputType="textPersonName"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/CadastrarAnuncio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_style"
+                android:onClick="validarDadosAnuncio"
+                android:text="Cadastrar Anuncio"
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

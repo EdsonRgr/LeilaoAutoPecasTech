@@ -75,14 +75,15 @@ public class DetalhesAnuncio extends AppCompatActivity {
     }
 
 
-    public void entrarEmContato(View view){
-
-
+    public void mandarMensagemNoWhatsApp(View view){
  Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + anuncioSelecionado.getTelefone()));
         startActivity( i );
+    }
 
-
+    public void entrarEmContato(View view){
+       Intent i = new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel",  anuncioSelecionado.getTelefone(), null));
+       startActivity( i );
     }
 
     private void inicializarComponentes(){

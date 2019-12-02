@@ -25,6 +25,21 @@
         <item>Chevrolet</item>
     </string-array>
 
+
+    <string-array name="Chevrolet">
+    <item>Corsa - Chevrolet </item>
+    <item>Celta - Chevrolet</item>
+    <item>Astra Sedan - Chevrolet</item>
+    <item>Agile - Chevrolet</item>
+    </string-array>
+
+    <string-array name="Volkswagen">
+    <item>CrossFox </item>
+    <item>Golf</item>
+    <item>Up!</item>
+    <item>Gol - Volkswagen</item>
+
+    </string-array>
     <string-array name="modelo">
         <item>Corsa - Chevrolet </item>
         <item>Celta - Chevrolet</item>

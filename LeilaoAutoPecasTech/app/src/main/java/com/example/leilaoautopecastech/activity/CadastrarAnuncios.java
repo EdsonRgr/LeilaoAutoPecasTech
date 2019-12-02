@@ -26,7 +26,10 @@ import com.blackcat.currencyedittext.CurrencyEditText;
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.Permissoes;
+import com.example.leilaoautopecastech.helper.UserPFFirebase;
+import com.example.leilaoautopecastech.helper.UserPJFirebase;
 import com.example.leilaoautopecastech.model.Anuncio;
+import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -59,7 +62,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
     private MaskEditText campoTelefone;
     private Anuncio anuncio;
     private Spinner spinnerMarca, spinnerModelo, spinnerCategoria, spinnerPeca;
-
+    private PessoaJuridica userLogado;
     private String[] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
@@ -77,14 +80,11 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
-        
+        userLogado = UserPJFirebase.getDadodsUsuarioLogadoPJ();
 
         storage = ConfigFirebase.getFirebaseStorage();
 
         Permissoes.validarPermissoes(permissoes, this ,2);
-
 
         inicializaComponentes();
         carregaDadosSpinner();
