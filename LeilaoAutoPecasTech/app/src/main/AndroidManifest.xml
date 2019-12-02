@@ -28,7 +28,6 @@
         <activity
             android:name=".activity.Navigation_Drawer"
             android:label="@string/title_activity_navigation__drawer"
-            android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CadastrarAnuncios"
