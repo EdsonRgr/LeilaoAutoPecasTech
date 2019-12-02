@@ -33,6 +33,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Nome da Empresa"
+        android:textColor="@color/design_default_color_primary_dark"
         android:textSize="20dp"
         android:textStyle="bold" />
 
