@@ -37,6 +37,7 @@ public class AdapterAnuncios extends RecyclerView.Adapter<AdapterAnuncios.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Anuncio anuncio = anuncios.get(position);
+        holder.nomeEmpresa.setText(anuncio.getNomeEmpresa());
         holder.titulo.setText( anuncio.getTitulo());
         holder.marca.setText(anuncio.getMarcas());
         holder.valor.setText(anuncio.getValor());
@@ -54,14 +55,14 @@ public class AdapterAnuncios extends RecyclerView.Adapter<AdapterAnuncios.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titulo;
-        TextView marca;
-        TextView valor;
+        TextView nomeEmpresa , titulo, marca, valor ;
         ImageView foto;
 
         public MyViewHolder(View itemView){
             super(itemView);
 
+
+            nomeEmpresa = itemView.findViewById(R.id.AdNomeEmpresa);
             titulo = itemView.findViewById(R.id.textTitulo);
             marca = itemView.findViewById(R.id.textMarca);
             valor = itemView.findViewById(R.id.textValor);

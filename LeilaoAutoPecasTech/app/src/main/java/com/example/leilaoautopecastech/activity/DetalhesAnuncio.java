@@ -28,13 +28,13 @@ public class DetalhesAnuncio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_anuncio);
-
+//Configurar toolbar
         Toolbar toolbar = findViewById(R.id.toolbarP);
         toolbar.setTitle("Detalhes do anúncio");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Configurar toolbar
+
 
 
         inicializarComponentes();

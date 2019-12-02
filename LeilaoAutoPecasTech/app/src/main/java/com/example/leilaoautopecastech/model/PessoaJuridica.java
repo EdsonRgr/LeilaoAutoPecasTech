@@ -4,6 +4,9 @@ import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PessoaJuridica extends Pessoa {
 
     private String NomeF;
@@ -22,6 +25,31 @@ public class PessoaJuridica extends Pessoa {
                 .setValue(this);
 
     }
+
+    public void atualizarPerfilPJ(){
+        DatabaseReference firebaseRef = ConfigFirebase.getFirebaseDatabase();
+        DatabaseReference usuariosRef = firebaseRef.child("usuarios").child(getidUsuario());
+
+        Map<String, Object> valoresUsuario = converterParaMap();
+        usuariosRef.updateChildren( valoresUsuario );
+
+    }
+
+    public Map<String, Object> converterParaMap(){
+
+        HashMap<String,Object> usuarioMap = new HashMap<>();
+        usuarioMap.put("email" , getEmail());
+        usuarioMap.put("nome" , getNomeF());
+        usuarioMap.put("idUsuario" , getidUsuario());
+        usuarioMap.put("idImg" , getIdImg());
+        usuarioMap.put("tipo" , getTipo());
+        usuarioMap.put("cnpj", getCNPJ());
+        usuarioMap.put("endereco", getEndereco());
+        usuarioMap.put("telefone", getTelefone());
+        return usuarioMap;
+
+    }
+
 
     public String getNomeF() {
         return NomeF;

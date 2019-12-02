@@ -43,8 +43,6 @@ public class PessoaFisica extends Pessoa {
         usuarioMap.put("tipo" , getTipo());
         return usuarioMap;
 
-
-
     }
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LeilaoAutoPecasTech</string>
+    <string name="app_name">LeilaoAutoTech</string>
     <string name="title_activity_meus_anuncios">MeusAnuncios</string>
     <string name="title_activity_navigation__drawer">Navigation_Drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

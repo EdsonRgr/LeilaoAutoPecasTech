@@ -29,6 +29,7 @@ import com.example.leilaoautopecastech.helper.Permissoes;
 import com.example.leilaoautopecastech.helper.UserPFFirebase;
 import com.example.leilaoautopecastech.helper.UserPJFirebase;
 import com.example.leilaoautopecastech.model.Anuncio;
+import com.example.leilaoautopecastech.model.Pessoa;
 import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -95,6 +96,14 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
 
         FirebaseUser usuarioLogado = UserPJFirebase.getUsuatioAtual();
         campoNomeEmpresa.setText(usuarioLogado.getDisplayName());
+
+        userLogado =(PessoaJuridica) getIntent().getSerializableExtra("PessoaJuridica");
+
+        if(userLogado != null ) {
+
+            campoTelefone.setText(userLogado.getTelefone());
+        }
+
 
 
         carregaDadosSpinner();

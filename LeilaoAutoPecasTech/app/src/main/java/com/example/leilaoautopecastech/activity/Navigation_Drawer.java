@@ -30,6 +30,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.leilaoautopecastech.model.PessoaJuridica;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -64,7 +65,7 @@ public class Navigation_Drawer extends AppCompatActivity {
     private List<Anuncio> listaAnuncios = new ArrayList<>();
     private AdapterAnuncios adapterAnuncios;
     private PessoaFisica usuarioLogado;
-
+    private PessoaJuridica usuarioLogadoPJ;
 
     private FirebaseAuth autenticacao;
 
@@ -84,6 +85,8 @@ public class Navigation_Drawer extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
 //
         usuarioLogado = UserPFFirebase.getDadodsUsuarioLogadoPF();
+        usuarioLogadoPJ = UserPJFirebase.getDadodsUsuarioLogadoPJ();
+
 
         View headerView = navigationView.getHeaderView(0);
 
@@ -92,9 +95,17 @@ public class Navigation_Drawer extends AppCompatActivity {
         TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
         CircleImageView imagemPerfil = (CircleImageView) headerView.findViewById(R.id.imagePerfilLogado);
 
-        String caminhoFoto = usuarioLogado.getIdImg();
-        if(caminhoFoto!= null){
-            Uri url = Uri.parse( caminhoFoto );
+        String caminhoFotoPF = usuarioLogado.getIdImg();
+        if(caminhoFotoPF!= null){
+            Uri url = Uri.parse( caminhoFotoPF );
+            Picasso.get().load(url).into(imagemPerfil);
+        }else{
+            imagemPerfil.setImageResource(R.drawable.user);
+        }
+
+        String caminhoFotoPJ = usuarioLogado.getIdImg();
+        if(caminhoFotoPJ!= null){
+            Uri url = Uri.parse( caminhoFotoPJ );
             Picasso.get().load(url).into(imagemPerfil);
         }else{
             imagemPerfil.setImageResource(R.drawable.user);
