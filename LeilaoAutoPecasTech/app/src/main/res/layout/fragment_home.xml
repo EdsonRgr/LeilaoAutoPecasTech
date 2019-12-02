@@ -40,6 +40,16 @@
             android:layout_weight="1"
             android:text="@string/Modelo"
             android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/recarregar"
+            style="?attr/buttonBarButtonStyle"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="recarregar"
+            android:text="R"
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leilaoautopecastech.R;
 import com.example.leilaoautopecastech.activity.DetalhesAnuncio;
+import com.example.leilaoautopecastech.activity.Navigation_Drawer;
 import com.example.leilaoautopecastech.activity.adapter.AdapterAnuncios;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.RecyclerItemClickListener;
@@ -44,7 +45,7 @@ import dmax.dialog.SpotsDialog;
 public class HomeFragment extends Fragment {
 
     private List<Anuncio> listaAnuncios = new ArrayList<>();
-    private Button buttonMarca, buttonModelo;
+    private Button buttonMarca, buttonModelo, btnCarregar;
     private AdapterAnuncios adapterAnuncios;
     private DatabaseReference anunciosPublicosRef;
     private AlertDialog dialog;
@@ -158,8 +159,14 @@ public class HomeFragment extends Fragment {
                 filtrarPorModelo();
             }
         });
-
-
+        btnCarregar = root.findViewById(R.id.recarregar);
+        btnCarregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Navigation_Drawer.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -343,7 +350,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
 
 
 
