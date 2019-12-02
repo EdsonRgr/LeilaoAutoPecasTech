@@ -133,7 +133,7 @@ public class CadastroPJ_Activity extends AppCompatActivity {
                     pessoaJuridica.salvarPessoaJuridica();
 
                     UserPJFirebase.updateNomeUserPj(pessoaJuridica.getNomeF());
-                    UserPJFirebase.updateTelUserPj(pessoaJuridica.getTelefone());
+
 
                 //    UserPJFirebase.updateNomeUser(pessoaJuridica.getEndereco());
                    // UserPJFirebase.updateNomeUser(pessoaJuridica.getTelefone());

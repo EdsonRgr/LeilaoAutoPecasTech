@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Anuncio implements Serializable {
+
+    private String NomeEmpresa;
     private String key;
     private String idAnuncio;
     private String marcas;
@@ -90,9 +92,13 @@ public class Anuncio implements Serializable {
     }
 
 
+    public String getNomeEmpresa() {
+        return NomeEmpresa;
+    }
 
-
-
+    public void setNomeEmpresa(String nomeEmpresa) {
+        NomeEmpresa = nomeEmpresa;
+    }
 
     @Exclude
     public String getFone() {

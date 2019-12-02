@@ -42,28 +42,6 @@ public class UserPJFirebase {
         }
     }
 
-    public static void updateTelUserPj(String telefone){
-        try{
-            FirebaseUser userLogado = getUsuatioAtual();
-            UserProfileChangeRequest perfil = new UserProfileChangeRequest
-                    .Builder()
-                    .setDisplayName( telefone )
-                    .build();
-            userLogado.updateProfile( perfil ).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if ( task.isSuccessful()){
-                        Log.d("Perfil", "Erro ao atualizar o nome do perfil");
-                    }
-                }
-            });
-        }catch ( Exception e){
-            e.printStackTrace();
-        }
-    }
-
-
-
 
 
     public static PessoaJuridica getDadodsUsuarioLogadoPJ(){
@@ -83,68 +61,5 @@ public class UserPJFirebase {
 
         return pessoaJuridica;
     }
-/*
-    public static PessoaFisica getDadodsUsuarioLogado(){
 
-        FirebaseUser firebaseUser = getUsuatioAtual();
-
-        PessoaJuridica pessoaJuridica = new PessoaJuridica();
-        pessoaJuridica.setEmail( firebaseUser.getEmail());
-        pessoaJuridica.setNomeF( firebaseUser.getDisplayName());
-        pessoaJuridica.setidUsuario(firebaseUser.getUid());
-
-        PessoaFisica pessoaFisica = new PessoaFisica();
-        pessoaFisica.setEmail( firebaseUser.getEmail());
-        pessoaFisica.setNome( firebaseUser.getDisplayName());
-        pessoaFisica.setidUsuario(firebaseUser.getUid());
-
-        if(firebaseUser.getPhotoUrl() == null){
-            pessoaFisica.setIdImg("");
-        }else{
-            pessoaFisica.setIdImg( firebaseUser.getPhotoUrl().toString() );
-        }
-
-        return pessoaFisica;
-    }
-
-/*
-    public static void redirecionaUsuario(){
-
-        DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
-                .child("PessoaFisica")
-                .child(getIdentificadorUsuario());
-
-        usuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                PessoaFisica pessoaFisica = dataSnapshot.getValue(PessoaFisica.class);
-
-                String tipoUsuario = pessoaFisica.getTipo();
-
-                if(tipoUsuario.equals("pessoaFisica")){
-                    hideItem();
-
-                }else{
-
-                }
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    public static String getIdentificadorUsuario(){
-        return getUsuatioAtual().getUid();
-
-    }
-
-*/
 }

@@ -98,44 +98,5 @@ public class UserPFFirebase {
         return pessoaFisica;
     }
 
-/*
-    public static void redirecionaUsuario(){
 
-        DatabaseReference usuarioRef = ConfigFirebase.getFirebaseDatabase()
-                .child("PessoaFisica")
-                .child(getIdentificadorUsuario());
-
-        usuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                PessoaFisica pessoaFisica = dataSnapshot.getValue(PessoaFisica.class);
-
-                String tipoUsuario = pessoaFisica.getTipo();
-
-                if(tipoUsuario.equals("pessoaFisica")){
-                    hideItem();
-
-                }else{
-
-                }
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    public static String getIdentificadorUsuario(){
-        return getUsuatioAtual().getUid();
-
-    }
-
-*/
 }

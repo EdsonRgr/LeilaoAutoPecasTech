@@ -14,6 +14,7 @@ import com.example.leilaoautopecastech.activity.ui.perfil.perfilPj;
 import com.example.leilaoautopecastech.config.ConfigFirebase;
 import com.example.leilaoautopecastech.helper.Permissoes;
 import com.example.leilaoautopecastech.helper.UserPFFirebase;
+import com.example.leilaoautopecastech.helper.UserPJFirebase;
 import com.example.leilaoautopecastech.model.Anuncio;
 import com.example.leilaoautopecastech.model.PessoaFisica;
 
@@ -86,8 +87,7 @@ public class Navigation_Drawer extends AppCompatActivity {
 
         View headerView = navigationView.getHeaderView(0);
 
-
-
+        TextView NomeEmpresa = (TextView) headerView.findViewById(R.id.userName);
         TextView NomePerfil = (TextView) headerView.findViewById(R.id.userName);
         TextView EmailPerfil = (TextView) headerView.findViewById(R.id.userEmail);
         CircleImageView imagemPerfil = (CircleImageView) headerView.findViewById(R.id.imagePerfilLogado);
@@ -106,6 +106,9 @@ public class Navigation_Drawer extends AppCompatActivity {
         FirebaseUser usuarioPerfil = getUsuatioAtual();
         NomePerfil.setText( usuarioPerfil.getDisplayName());
         EmailPerfil.setText( usuarioPerfil.getEmail());
+
+        FirebaseUser usuarioLogado = UserPJFirebase.getUsuatioAtual();
+        NomeEmpresa.setText(usuarioLogado.getDisplayName());
 
 //
 

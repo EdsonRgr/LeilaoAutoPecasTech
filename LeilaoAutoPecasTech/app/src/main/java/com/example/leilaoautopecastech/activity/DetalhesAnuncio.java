@@ -20,7 +20,7 @@ import com.synnapps.carouselview.ImageListener;
 public class DetalhesAnuncio extends AppCompatActivity {
 
     private CarouselView carouselView;
-    private TextView titulo, valor, categoria, peca, descricao;
+    private TextView titulo, valor, categoria, peca, descricao,nomeEmprea;
     private Anuncio anuncioSelecionado;
 
 
@@ -45,6 +45,7 @@ public class DetalhesAnuncio extends AppCompatActivity {
 
         if(anuncioSelecionado != null ){
 
+            nomeEmprea.setText(anuncioSelecionado.getNomeEmpresa());
             titulo.setText( anuncioSelecionado.getTitulo());
             valor.setText(anuncioSelecionado.getValor());
             categoria.setText(anuncioSelecionado.getCategorias());
@@ -88,11 +89,13 @@ public class DetalhesAnuncio extends AppCompatActivity {
 
     private void inicializarComponentes(){
         carouselView = findViewById(R.id.carouselView);
+        nomeEmprea = findViewById(R.id.NomeF);
         titulo = findViewById(R.id.detalheTitulo);
         valor =  findViewById(R.id.detalheValor);
         categoria =  findViewById(R.id.detalheCategoria);
         peca = findViewById(R.id.detalhePeca);
         descricao = findViewById(R.id.detalheDescricao);
+
 
 
 

@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -57,7 +58,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
     private StorageReference storage;
 
     private ImageView imagem1,imagem2,imagem3;
-    private EditText campoTitulo, campoDescricao;
+    private EditText campoTitulo, campoDescricao,campoNomeEmpresa;
     private CurrencyEditText campoValor;
     private MaskEditText campoTelefone;
     private Anuncio anuncio;
@@ -80,13 +81,22 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        userLogado = UserPJFirebase.getDadodsUsuarioLogadoPJ();
+
+
+
+
 
         storage = ConfigFirebase.getFirebaseStorage();
 
         Permissoes.validarPermissoes(permissoes, this ,2);
 
         inicializaComponentes();
+
+
+        FirebaseUser usuarioLogado = UserPJFirebase.getUsuatioAtual();
+        campoNomeEmpresa.setText(usuarioLogado.getDisplayName());
+
+
         carregaDadosSpinner();
 
     }
@@ -172,6 +182,8 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
 
     private Anuncio configuraAnuncio(){
 
+
+        String nomeEmpresa = campoNomeEmpresa.getText().toString();
         String marca = spinnerMarca.getSelectedItem().toString();
         String modelo = spinnerModelo.getSelectedItem().toString();
         String categoria = spinnerCategoria.getSelectedItem().toString();
@@ -190,6 +202,7 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
         anuncio.setModelos( modelo);
         anuncio.setCategorias(categoria);
         anuncio.setPecas(peca);
+        anuncio.setNomeEmpresa(nomeEmpresa);
         anuncio.setTitulo(titulo);
         anuncio.setValor(valor);
         anuncio.setTelefone(telefone);
@@ -337,6 +350,8 @@ public class CadastrarAnuncios extends AppCompatActivity implements View.OnClick
 
 
     private void inicializaComponentes(){
+        campoNomeEmpresa = findViewById(R.id.NomeFantasia);
+        campoNomeEmpresa.setFocusable(false);
         campoTitulo = findViewById(R.id.TituloCad);
         campoDescricao = findViewById(R.id.DescricaoCad);
         campoValor = findViewById(R.id.ValorCad);
