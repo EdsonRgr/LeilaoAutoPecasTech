@@ -6,7 +6,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1da1f2">
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="49dp"
+        app:srcCompat="@drawable/logo23">
+
+    </ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Crie sua conta grátis"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
@@ -34,7 +48,7 @@
             android:layout_marginBottom="85dp"
             android:gravity="center"
             android:text="Junte-se a mais de meio milhao\n de pessoas, comece já!"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
@@ -42,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cadastre-se como:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -62,7 +76,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="30dp"
-            android:background="@drawable/circulo_drawable"
+            android:background="@drawable/button_style"
+            android:textColor="@color/white"
             android:onClick="btCadastrarPJ"
             android:text="Pessoa Juridica" />
 
@@ -72,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/circulo_drawable"
+            android:background="@drawable/button_style"
+            android:textColor="@color/white"
             android:onClick="btCadastrarPF"
             android:text="Pessoa Fisica" />
     </LinearLayout>
@@ -92,7 +108,7 @@
             android:layout_height="match_parent"
             android:onClick="btEntrar"
             android:text="Já sou cadastrado"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>
