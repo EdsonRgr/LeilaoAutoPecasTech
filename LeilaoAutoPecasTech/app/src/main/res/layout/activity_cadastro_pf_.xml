@@ -50,6 +50,7 @@
                 android:background="@drawable/circulo_drawable"
                 android:hint="Nome"
                 android:inputType="textPersonName"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
                 android:padding="10dp" />
 
             <EditText
@@ -61,6 +62,7 @@
                 android:background="@drawable/circulo_drawable"
                 android:hint="E-mail"
                 android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
                 android:padding="10dp" />
 
             <EditText
@@ -72,6 +74,7 @@
                 android:background="@drawable/circulo_drawable"
                 android:hint="Senha"
                 android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:padding="10dp" />
 
             <Button
